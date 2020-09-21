@@ -1,4 +1,4 @@
-<?
+<?php
 
 // FONCTIONS DE CONTRÔLE DE SAISIE
 
@@ -116,10 +116,17 @@ function afficherErreurs()
 {
    echo '<div class="msgErreur">';
    echo '<ul>';
-   foreach($_REQUEST['erreurs'] as $erreur)
-	{
-      echo "<li>$erreur</li>";
-	}
+   if($_REQUEST['erreurs'] =='')
+   {
+
+   }
+   else
+   {
+      foreach($_REQUEST['erreurs'] as $erreur)
+      {
+         echo "<li>$erreur</li>";
+      };
+   }
    echo '</ul>';
    echo '</div>';
 } 
