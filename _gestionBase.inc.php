@@ -5,8 +5,8 @@
 function connect()
 {
    $hote="localhost";
-   $login="festival";
-   $mdp="secret";
+   $login="root";
+   $mdp="";
    return mysql_connect($hote, $login, $mdp);
 }
 
