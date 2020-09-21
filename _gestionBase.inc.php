@@ -6,7 +6,7 @@ function connect()
 {
   $user = 'root';
    $pass = '';
-   $dsn = 'mysql:host=localhost; dbname=festivalm2l';
+   $dsn = 'mysql:host=localhost; dbname=festivalM2L';
    try { 
     $dbh = new PDO($dsn, $user, $pass);
     
