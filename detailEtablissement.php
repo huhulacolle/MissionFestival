@@ -20,7 +20,7 @@ if (!selectBase($connexion))
    exit();
 }
 
-$id=$_REQUEST['id'];  
+$idEtablissement=$_REQUEST['idEtablissement'];  
 
 // OBTENIR LE DÉTAIL DE L'ÉTABLISSEMENT SÉLECTIONNÉ
 

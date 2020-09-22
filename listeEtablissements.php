@@ -37,7 +37,7 @@ class='tabNonQuadrille'>
    // BOUCLE SUR LES ÉTABLISSEMENTS
    while ($lgEtab!=FALSE)
    {
-      $id=$lgEtab['id'];
+      $idEtablissement=$lgEtab['idEtablissement'];
       $nom=$lgEtab['nom'];
       echo $nom;
       echo"
@@ -45,20 +45,20 @@ class='tabNonQuadrille'>
          <td width='52%'>$nom</td>
          
          <td width='16%' align='center'> 
-         <a href='detailEtablissement.php?id=$id'>
+         <a href='detailEtablissement.php?idEtablissement=$idEtablissement'>
          Voir détail</a></td>
          
          <td width='16%' align='center'> 
-         <a href='modificationEtablissement.php?action=demanderModifEtab&amp;id=$id'>
+         <a href='modificationEtablissement.php?action=demanderModifEtab&amp;idEtablissement=$idEtablissement'>
          Modifier</a></td>";
       	
          // S'il existe déjà des attributions pour l'établissement, il faudra
          // d'abord les supprimer avant de pouvoir supprimer l'établissement
-			if (!existeAttributionsEtab($connexion, $id))
+			if (!existeAttributionsEtab($connexion, $idEtablissement))
 			{
             echo "
             <td width='16%' align='center'> 
-            <a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;id=$id'>
+            <a href='suppressionEtablissement.php?action=demanderSupprEtab&amp;idEtablissement=$idEtablissement'>
             Supprimer</a></td>";
          }
          else
@@ -68,7 +68,7 @@ class='tabNonQuadrille'>
 			}
 			echo "
       </tr>";
-      $lgEtab=mysql_fetch_array($rsEtab);
+      $lgEtab=mysqli_fetch_array($rsEtab);
    }   
    echo "
    <tr class='ligneTabNonQuad'>
