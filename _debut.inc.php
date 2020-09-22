@@ -8,20 +8,47 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/rose.css">
 </head>
 
 <center> <img src="images\logo-200x200.png"> </center>
 
+<?php
+$adresse = $_SERVER['PHP_SELF'];
+$adresse = explode("/MissionFestival/", $adresse);
+$adresse = $adresse[1]
+?>
 <ul class="nav justify-content-center nav-tabs">
     <li class="nav-item">
-        <a class="nav-link" href="index.php">Acceuil</a>
+        <?php
+    if ($adresse == "index.php") {
+        echo'<a class="nav-link active" href="index.php">Acceuil</a>';
+    }
+    else {
+        echo'<a class="nav-link" href="index.php">Acceuil</a>';
+    }
+    ?>
+
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="listeEtablissements.php">Gestion établissements</a>
+        <?php
+    if ($adresse == "listeEtablissements.php") {
+        echo '<a class="nav-link active" href="listeEtablissements.php">Gestion établissements</a>';
+    }
+    else {
+        echo '<a class="nav-link" href="listeEtablissements.php">Gestion établissements</a>';
+    }     
+        ?>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="consultationAttributions.php">Attributions chambres</a>
+        <?php
+    if ($adresse == "consultationAttributions.php") {
+        echo '<a class="nav-link active" href="consultationAttributions.php">Attributions chambres</a>';
+    }
+    else {
+        echo '<a class="nav-link" href="consultationAttributions.php">Attributions chambres</a>';
+    }
+    ?>
+
     </li>
 </ul>
 
