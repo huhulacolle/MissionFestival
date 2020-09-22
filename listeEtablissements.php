@@ -39,7 +39,8 @@ class='tabNonQuadrille'>
    {
       $id=$lgEtab['id'];
       $nom=$lgEtab['nom'];
-      echo "
+      echo $nom;
+      echo"
 		<tr class='ligneTabNonQuad'>
          <td width='52%'>$nom</td>
          
