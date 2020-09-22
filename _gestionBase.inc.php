@@ -167,11 +167,11 @@ function obtenirNomGroupe($connexion, $id)
 // FONCTIONS RELATIVES AUX ATTRIBUTIONS
 
 // Teste la présence d'attributions pour l'établissement transmis    
-function existeAttributionsEtab($connexion, $id)
+function existeAttributionsEtab($connexion, $idEtablissement)
 {
-   $req="select * From Attribution where idEtab='$id'";
-   $rsAttrib=mysql_query($req, $connexion);
-   return mysql_fetch_array($rsAttrib);
+   $req="select * From Attribution where idEtab='$idEtablissement'";
+   $rsAttrib=mysqli_query($connexion, $req);
+   return mysqli_fetch_array($rsAttrib);
 }
 
 // Retourne le nombre de chambres occupées pour l'id étab transmis
