@@ -4,25 +4,18 @@
 
 function connect()
 {
-  $user = 'root';
-   $pass = '';
-   $dsn = 'mysql:host=localhost; dbname=FestivalM2L';
-   try { 
-    $dbh = new PDO($dsn, $user, $pass);
-    
-   } catch (PDOException $e) {
-    print "Erreur ! :" . $e->getMessage() . "<br/>";
-    die();
-   }
+ $hote="localhost";
+   $login="root";
+   $mdp="";
+   return mysqli_connect($hote, $login, $mdp);
 }
-
 function selectBase($connexion)
 {
-   $bd="festival";
+   $bd="festivalM2L";
    $query="SET CHARACTER SET utf8";
    // Modification du jeu de caractères de la connexion
-   $res=mysql_query($query, $connexion); 
-   $ok=mysql_select_db($bd, $connexion);
+   $res=mysqli_query($connexion, $query); 
+   $ok=mysqli_select_db( $connexion, $bd);
    return $ok;
 }
 

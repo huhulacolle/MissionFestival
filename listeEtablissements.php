@@ -5,8 +5,8 @@ include("_gestionBase.inc.php");
 include("_controlesEtGestionErreurs.inc.php");
 
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
-
 $connexion=connect();
+$selection=(selectBase($connexion));
 if (!$connexion)
 {
    $AjoutErreur=ajouterErreur("Echec de la connexion au serveur MySql");
@@ -32,8 +32,8 @@ class='tabNonQuadrille'>
    </tr>";
      
    $req=obtenirReqEtablissements();
-   $rsEtab=mysql_query($req, $connexion);
-   $lgEtab=mysql_fetch_array($rsEtab);
+   $rsEtab=mysqli_query( $connexion,$req);
+   $lgEtab=mysqli_fetch_array($rsEtab);
    // BOUCLE SUR LES ÉTABLISSEMENTS
    while ($lgEtab!=FALSE)
    {
