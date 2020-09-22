@@ -11,7 +11,7 @@ function connect()
 }
 function selectBase($connexion)
 {
-   $bd="festivalM2L";
+   $bd="FestivalM2L";
    $query="SET CHARACTER SET utf8";
    // Modification du jeu de caractères de la connexion
    $res=mysqli_query($connexion, $query); 
