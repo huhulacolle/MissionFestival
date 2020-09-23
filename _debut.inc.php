@@ -25,12 +25,13 @@ $adresse = explode("/", $adresse);
     else {
         echo'<a class="nav-link" href="index.php">Acceuil</a>';
     }
+    
     ?>
 
     </li>
     <li class="nav-item">
         <?php
-    if ($adresse["2"] == "listeEtablissements.php") {
+    if (strpos($adresse["2"], "listeEtablissements.php") !== false || strpos($adresse["2"], "detailEtablissement.php") !== false || strpos($adresse["2"], "modificationEtablissement.php") !== false|| strpos($adresse["2"], "suppressionEtablissement.php") !== false) {
         echo '<a class="nav-link active" href="listeEtablissements.php">Gestion établissements</a>';
     }
     else {
