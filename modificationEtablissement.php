@@ -26,7 +26,7 @@ if (!selectBase($connexion))
 $tabCivilite=array("M.","Mme","Melle");  
 
 $action=$_REQUEST['action'];
-$id=$_REQUEST['id'];
+$id=$_REQUEST['idEtablissement'];
 
 // Si on ne "vient" pas de ce formulaire, il faut récupérer les données à partir 
 // de la base (en appelant la fonction obtenirDetailEtablissement) sinon on 
@@ -81,7 +81,7 @@ echo "
          <td colspan='3'>$nom ($id)</td>
       </tr>
       <tr>
-         <td><input type='hidden' value='$id' name='id'></td>
+         <td><input type='hidden' value='$id' name='idEtablissement'></td>
       </tr>";
       
       echo '
