@@ -22,7 +22,7 @@ if (!selectBase($connexion))
 
 // SUPPRIMER UN ÉTABLISSEMENT 
 
-$id=$_REQUEST['id'];  
+$id=$_REQUEST['idEtablissement'];  
 
 $lgEtab=obtenirDetailEtablissement($connexion, $id);
 $nom=$lgEtab['nom'];
@@ -34,7 +34,7 @@ if ($_REQUEST['action']=='demanderSupprEtab')
    echo "
    <br><center><h5>Souhaitez-vous vraiment supprimer l'établissement $nom ? 
    <br><br>
-   <a href='suppressionEtablissement.php?action=validerSupprEtab&amp;id=$id'>
+   <a href='suppressionEtablissement.php?action=validerSupprEtab&amp;idEtablissement=$id'>
    Oui</a>&nbsp; &nbsp; &nbsp; &nbsp;
    <a href='listeEtablissements.php?'>Non</a></h5></center>";
 }
