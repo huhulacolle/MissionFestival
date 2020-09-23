@@ -14,13 +14,12 @@
 
 <?php
 $adresse = $_SERVER['PHP_SELF'];
-$adresse = explode("/missionfestival/", $adresse);
-$adresse = $adresse["1"];
+$adresse = explode("/", $adresse);
 ?>
 <ul class="nav justify-content-center nav-tabs">
     <li class="nav-item">
         <?php
-    if ($adresse == "index.php") {
+    if ($adresse["2"] == "index.php") {
         echo'<a class="nav-link active" href="index.php">Acceuil</a>';
     }
     else {
@@ -31,7 +30,7 @@ $adresse = $adresse["1"];
     </li>
     <li class="nav-item">
         <?php
-    if ($adresse == "listeEtablissements.php") {
+    if ($adresse["2"] == "listeEtablissements.php") {
         echo '<a class="nav-link active" href="listeEtablissements.php">Gestion établissements</a>';
     }
     else {
@@ -41,7 +40,7 @@ $adresse = $adresse["1"];
     </li>
     <li class="nav-item">
         <?php
-    if ($adresse == "consultationAttributions.php") {
+    if ($adresse["2"] == "consultationAttributions.php") {
         echo '<a class="nav-link active" href="consultationAttributions.php">Attributions chambres</a>';
     }
     else {
