@@ -14,8 +14,8 @@
 
 <?php
 $adresse = $_SERVER['PHP_SELF'];
-$adresse = explode("/MissionFestival/", $adresse);
-$adresse = $adresse[1];
+$adresse = explode("/missionfestival/", $adresse);
+$adresse = $adresse["1"];
 ?>
 <ul class="nav justify-content-center nav-tabs">
     <li class="nav-item">
