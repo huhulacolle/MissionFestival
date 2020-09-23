@@ -41,17 +41,17 @@ function obtenirReqEtablissementsAyantChambresAttribuées()
    return $req;
 }
 
-function obtenirDetailEtablissement($connexion, $id)
+function obtenirDetailEtablissement($connexion, $idEtablissement)
 {
-   $req="select * from Etablissement where idEtablissement='$id'";
-   $rsEtab=mysql_query($req, $connexion);
-   return mysql_fetch_array($rsEtab);
+   $req="select * from Etablissement where idEtablissement='$idEtablissement'";
+   $rsEtab=mysqli_query($connexion, $req);
+   return mysqli_fetch_array($rsEtab);
 }
 
-function supprimerEtablissement($connexion, $id)
+function supprimerEtablissement($connexion, $idEtablissement)
 {
-   $req="delete from Etablissement where idEtablissement='$id'";
-   mysql_query($req, $connexion);
+   $req="delete from Etablissement where idEtablissement='$idEtablissement'";
+   mysqli_query($connexion, $req);
 }
  
 function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, 

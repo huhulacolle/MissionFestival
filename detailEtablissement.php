@@ -24,7 +24,7 @@ $idEtablissement=$_REQUEST['idEtablissement'];
 
 // OBTENIR LE DÉTAIL DE L'ÉTABLISSEMENT SÉLECTIONNÉ
 
-$lgEtab=obtenirDetailEtablissement($connexion, $id);
+$lgEtab=obtenirDetailEtablissement($connexion, $idEtablissement);
 
 $nom=$lgEtab['nom'];
 $adresseRue=$lgEtab['adresseRue'];
@@ -47,7 +47,7 @@ class='tabNonQuadrille'>
    </tr>
    <tr class='ligneTabNonQuad'>
       <td  width='20%'> Id: </td>
-      <td>$id</td>
+      <td>$idEtablissement</td>
    </tr>
    <tr class='ligneTabNonQuad'>
       <td> Adresse: </td>
