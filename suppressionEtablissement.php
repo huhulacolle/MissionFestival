@@ -44,9 +44,7 @@ if ($_REQUEST['action']=='demanderSupprEtab')
 else
 {
    supprimerEtablissement($connexion, $id);
-   echo "
-   <br><br><center><h5>L'établissement $nom a été supprimé</h5>
-   <a href='listeEtablissements.php?'>Retour</a></center>";
+   echo '<meta http-equiv="refresh" content="0 ; URL=listeEtablissements.php">';
 }
 
 ?>

@@ -192,8 +192,7 @@ if ($action=='validerCreEtab')
    }
    else
    {
-      echo "
-      <h5><center>La création de l'établissement a été effectuée</center></h5>";
+      echo '<meta http-equiv="refresh" content="0 ; URL=listeEtablissements.php">';
    }
 }
 
