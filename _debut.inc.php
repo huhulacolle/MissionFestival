@@ -31,7 +31,7 @@ $adresse = explode("/", $adresse);
     </li>
     <li class="nav-item">
         <?php
-    if (strpos($adresse["2"], "listeEtablissements.php") !== false || strpos($adresse["2"], "detailEtablissement.php") !== false || strpos($adresse["2"], "modificationEtablissement.php") !== false|| strpos($adresse["2"], "suppressionEtablissement.php") !== false) {
+    if (strpos($adresse["2"], "Etablissements.php") !== false || strpos($adresse["2"], "Etablissement.php") !== false) {
         echo '<a class="nav-link active" href="listeEtablissements.php">Gestion établissements</a>';
     }
     else {
@@ -41,7 +41,7 @@ $adresse = explode("/", $adresse);
     </li>
     <li class="nav-item">
         <?php
-    if ($adresse["2"] == "consultationAttributions.php") {
+    if (strpos($adresse["2"], "Attributions.php")!== false)  {
         echo '<a class="nav-link active" href="consultationAttributions.php">Attributions chambres</a>';
     }
     else {
