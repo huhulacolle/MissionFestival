@@ -37,64 +37,107 @@ $civiliteResponsable=$lgEtab['civiliteResponsable'];
 $nomResponsable=$lgEtab['nomResponsable'];
 $prenomResponsable=$lgEtab['prenomResponsable'];
 $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
+?>
+<center>
+    <h2> <?php echo $nom; ?> </h2>
+</center>
+<div class="mx-auto" style="width: 200px;">
+    <table class="table table-borderless">
+    <tr> 
+    <td> id : </td>
+    <td> <?php echo $idEtablissement; ?> </td>
+    </tr>
+    <tr> 
+    <td> adresse : </td>
+    <td> <?php echo $adresseRue; ?> </td>
+    </tr>
+    <tr> 
+    <td> Code Postal : </td>
+    <td> <?php echo $codePostal; ?> </td>
+    </tr>
+    <tr> 
+    <td> Ville : </td>
+    <td> <?php echo $ville; ?> </td>
+    </tr>
+    <tr> 
+    <td> Téléphone : </td>
+    <td> <?php echo $tel; ?> </td>
+    </tr>
+    <tr> 
+    <td>E-Mail : </td>
+    <td> <?php echo $adresseElectronique; ?> </td>
+    </tr>
+    <tr> 
+    <td> Type : </td>
+    <td> <?php echo $type; ?> </td>
+    </tr>
+    <tr> 
+    <td> Responsable : </td>
+    <td> <?php echo $nomResponsable; ?> </td>
+    </tr>
+    <tr> 
+    <td> Offre : </td>
+    <td> <?php echo $nombreChambresOffertes; ?> </td>
+    </tr>
 
-echo "
-<table width='60%' cellspacing='0' cellpadding='0' align='center' 
-class='tabNonQuadrille'>
+        <?php
+// echo "
+// <table width='60%' cellspacing='0' cellpadding='0' align='center' 
+// class='tabNonQuadrille'>
    
-   <tr class='enTeteTabNonQuad'>
-      <td colspan='3'>$nom</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td  width='20%'> Id: </td>
-      <td>$idEtablissement</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Adresse: </td>
-      <td>$adresseRue</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Code postal: </td>
-      <td>$codePostal</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Ville: </td>
-      <td>$ville</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Téléphone: </td>
-      <td>$tel</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> E-mail: </td>
-      <td>$adresseElectronique</td>
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Type: </td>";
-      if ($type==1)
-      {
-         echo "<td> Etablissement scolaire </td>";
-      }
-      else
-      {
-         echo "<td> Autre établissement </td>";
-      }
-   echo "
-   </tr>
-   <tr class='ligneTabNonQuad'>
-      <td> Responsable: </td>
-      <td>$civiliteResponsable&nbsp; $nomResponsable&nbsp; $prenomResponsable
-      </td>
-   </tr> 
-   <tr class='ligneTabNonQuad'>
-      <td> Offre: </td>
-      <td>$nombreChambresOffertes&nbsp;chambre(s)</td>
-   </tr>
-</table>
-<table align='center'>
-   <tr>
-      <td align='center'><a href='listeEtablissements.php'>Retour</a>
-      </td>
-   </tr>
-</table>";
+//    <tr class='enTeteTabNonQuad'>
+//       <td colspan='3'>$nom</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td  width='20%'> Id: </td>
+//       <td>$idEtablissement</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> Adresse: </td>
+//       <td>$adresseRue</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> Code postal: </td>
+//       <td>$codePostal</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> Ville: </td>
+//       <td>$ville</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> Téléphone: </td>
+//       <td>$tel</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> E-mail: </td>
+//       <td>$adresseElectronique</td>
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> Type: </td>";
+//       if ($type==1)
+//       {
+//          echo "<td> Etablissement scolaire </td>";
+//       }
+//       else
+//       {
+//          echo "<td> Autre établissement </td>";
+//       }
+//    echo "
+//    </tr>
+//    <tr class='ligneTabNonQuad'>
+//       <td> Responsable: </td>
+//       <td>$civiliteResponsable&nbsp; $nomResponsable&nbsp; $prenomResponsable
+//       </td>
+//    </tr> 
+//    <tr class='ligneTabNonQuad'>
+//       <td> Offre: </td>
+//       <td>$nombreChambresOffertes&nbsp;chambre(s)</td>
+//    </tr>
+// </table>
+// <table align='center'>
+//    <tr>
+//       <td align='center'><a href='listeEtablissements.php'>Retour</a>
+//       </td>
+//    </tr>
+// </table>";
 ?>
