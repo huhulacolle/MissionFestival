@@ -219,7 +219,7 @@ function obtenirReqEquipesEtab($id)
 function obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe)
 {
    $req="select nombreChambres From Attribution where idEtab='$idEtab'
-        and idE='$idEquipe'";
+        and idEquipe='$idEquipe'";
    $rsAttribEquipe=mysqli_query($connexion, $req);
    if ($lgAttribEquipe=mysqli_fetch_array($rsAttribEquipe))
       return $lgAttribEquipe["nombreChambres"];
