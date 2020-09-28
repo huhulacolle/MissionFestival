@@ -41,9 +41,9 @@ $action=$_REQUEST['action'];
 if ($action=='validerModifAttrib')
 {
    $idEtab=$_REQUEST['idEtab'];
-   $idGroupe=$_REQUEST['idGroupe'];
+   $idEquipe=$_REQUEST['idEquipe'];
    $nbChambres=$_REQUEST['nbChambres'];
-   modifierAttribChamb($connexion, $idEtab, $idGroupe, $nbChambres);
+   modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres);
 }
 
 echo "
@@ -87,7 +87,7 @@ class='tabQuadrille'>";
    // CORPS DU TABLEAU : CONSTITUTION D'UNE LIGNE PAR GROUPE À HÉBERGER AVEC LES 
    // CHAMBRES ATTRIBUÉES ET LES LIENS POUR EFFECTUER OU MODIFIER LES ATTRIBUTIONS
          
-   $req=obtenirReqIdNomGroupesAHeberger();
+   $req=obtenirReqIdNomEquipeAHeberger();
    $rsEquipe=mysqli_query($connexion, $req);
    $lgEquipe=mysqli_fetch_array($rsEquipe);
          

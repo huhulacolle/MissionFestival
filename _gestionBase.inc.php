@@ -150,17 +150,17 @@ function estModifOffreCorrecte($connexion, $idEtab, $nombreChambres)
 
 // FONCTIONS RELATIVES AUX GROUPES
 
-function obtenirReqIdNomGroupesAHeberger()
+function obtenirReqIdNomEquipeAHeberger()
 {
    $req="select idE, nom from Equipe where hebergement='O' order by idE";
    return $req;
 }
 
-function obtenirNomGroupe($connexion, $id)
+function obtenirNomEquipe($connexion, $id)
 {
    $req="select nom from Equipe where idE='$id'";
    $rsEquipe=mysqli_query($connexion,$req);
-   $lgEquipe=mysqli_fetch_array($rsGroupe);
+   $lgEquipe=mysqli_fetch_array($rsEquipe);
    return $lgEquipe["nom"];
 }
 
@@ -189,7 +189,7 @@ function obtenirNbOccup($connexion, $idEtab)
 function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
 {
    $req="select count(*) as nombreAttribGroupe from Attribution where idEtab=
-        '$idEtab' and idGroupe='$idGroupe'";
+        '$idEtab' and idEquipe='$idEquipe'";
    $rsAttrib=mysqli_query($connexion, $req);
    $lgAttrib=mysqli_fetch_array($rsAttrib);
    if ($nbChambres==0)
