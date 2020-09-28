@@ -90,13 +90,13 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
             <tr>
 
                 <td>Nom : <input type="text" class="form-control" name="nom" maxlength="45" required></td>
-                <td>Adresse :<input type="text" class="form-control" name="adresseRue" maxlength="45"></td>
-                <td>Code Postal :<input type="number" class="form-control" name="codePostal" maxlength="5"></td>
+                <td>Adresse :<input type="text" class="form-control" name="adresseRue" maxlength="45" required></td>
+                <td>Code Postal :<input type="number" class="form-control" name="codePostal" maxlength="5" required></td>
             </tr>
             <tr>
-                <td>Ville :<input type="text" class="form-control" name="ville" maxlength="35"></td>
-                <td>Téléphone :<input type="tel" class="form-control" name="tel" maxlength="10"></td>
-                <td>E-mail :<input type="email" class="form-control" name="adresseElectronique" maxlength="70"></td>
+                <td>Ville :<input type="text" class="form-control" name="ville" maxlength="35" required></td>
+                <td>Téléphone :<input type="tel" class="form-control" name="tel" maxlength="10" required></td>
+                <td>E-mail :<input type="email" class="form-control" name="adresseElectronique" maxlength="70" ></td>
             </tr>
             <tr>
                 <td></td>
