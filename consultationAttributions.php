@@ -87,7 +87,7 @@ if ($nbEtab!=0)
          // dans l'établissement
          $nbOccupEquipe=obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe);
          echo "
-            <td width='35%' align='left'>$nbOccupGroupe</td>
+            <td width='35%' align='left'>$nbOccupEquipe</td>
          </tr>";
          $lgEquipe=mysqli_fetch_array($rsEquipe);
       } // Fin de la boucle sur les groupes

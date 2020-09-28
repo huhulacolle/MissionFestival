@@ -191,7 +191,7 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
    $req="select count(*) as nombreAttribGroupe from Attribution where idEtab=
         '$idEtab' and idGroupe='$idGroupe'";
    $rsAttrib=mysqli_query($connexion, $req);
-   $lgAttrib=mysql_fetch_array($rsAttrib);
+   $lgAttrib=mysqli_fetch_array($rsAttrib);
    if ($nbChambres==0)
       $req="delete from Attribution where idEtab='$idEtab' and idEquipe='$idEquipe'";
    else
@@ -202,7 +202,7 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
       else
          $req="insert into Attribution values('$idEtab','$idEquipe', $nbChambres)";
    }
-   mysql_query($req, $connexion);
+   mysqli_query($connexion, $req);
 }
 
 // Retourne la requête permettant d'obtenir les id et noms des groupes affectés
