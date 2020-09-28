@@ -62,11 +62,7 @@ class='tabQuadrille'>";
       <td>&nbsp;</td>";
       
    $req=obtenirReqEtablissementsOffrantChambres();
-<<<<<<< HEAD
    $rsEtab=mysqli_query($connexion, $req);
-=======
-   $rsEtab=mysqli_query($req, $connexion);
->>>>>>> f8e2c8de02969ab52b2ad5b7739936062bb6f179
    $lgEtab=mysqli_fetch_array($rsEtab);
 
    // Boucle sur les établissements (pour afficher le nom de l'établissement et 
@@ -92,13 +88,8 @@ class='tabQuadrille'>";
    // CHAMBRES ATTRIBUÉES ET LES LIENS POUR EFFECTUER OU MODIFIER LES ATTRIBUTIONS
          
    $req=obtenirReqIdNomGroupesAHeberger();
-<<<<<<< HEAD
    $rsEquipe=mysqli_query($connexion, $req);
    $lgEquipe=mysqli_fetch_array($rsEquipe);
-=======
-   $rsGroupe=mysqli_query($req, $connexion);
-   $lgGroupe=mysqli_fetch_array($rsGroupe);
->>>>>>> f8e2c8de02969ab52b2ad5b7739936062bb6f179
          
    // BOUCLE SUR LES GROUPES À HÉBERGER 
    while ($lgEquipe!=FALSE)
@@ -109,11 +100,7 @@ class='tabQuadrille'>";
       <tr class='ligneTabQuad'>
          <td width='25%'>$nom</td>";
       $req=obtenirReqEtablissementsOffrantChambres();
-<<<<<<< HEAD
       $rsEtab=mysqli_query($connexion, $req);
-=======
-      $rsEtab=mysqli_query($req, $connexion);
->>>>>>> f8e2c8de02969ab52b2ad5b7739936062bb6f179
       $lgEtab=mysqli_fetch_array($rsEtab);
            
       // BOUCLE SUR LES ÉTABLISSEMENTS
@@ -163,11 +150,7 @@ class='tabQuadrille'>";
          }    
          $lgEtab=mysqli_fetch_array($rsEtab);
       } // Fin de la boucle sur les établissements    
-<<<<<<< HEAD
       $lgEquipe=mysqli_fetch_array($rsEquipe);  
-=======
-      $lgGroupe=mysqli_fetch_array($rsGroupe);  
->>>>>>> f8e2c8de02969ab52b2ad5b7739936062bb6f179
    } // Fin de la boucle sur les groupes à héberger
 echo "
 </table>"; // Fin du tableau principal
