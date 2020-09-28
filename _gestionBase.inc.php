@@ -159,9 +159,9 @@ function obtenirReqIdNomGroupesAHeberger()
 function obtenirNomGroupe($connexion, $id)
 {
    $req="select nom from Equipe where idE='$id'";
-   $rsGroupe=mysqli_query($connexion,$req);
-   $lgGroupe=mysqli_fetch_array($rsGroupe);
-   return $lgGroupe["nom"];
+   $rsEquipe=mysqli_query($connexion,$req);
+   $lgEquipe=mysqli_fetch_array($rsGroupe);
+   return $lgEquipe["nom"];
 }
 
 // FONCTIONS RELATIVES AUX ATTRIBUTIONS
@@ -207,7 +207,7 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
 
 // Retourne la requête permettant d'obtenir les id et noms des groupes affectés
 // dans l'établissement transmis
-function obtenirReqGroupesEtab($id)
+function obtenirReqEquipesEtab($id)
 {
    $req="select distinct idE, nom from Equipe, Attribution where 
         Attribution.idEquipe=Equipe.ide and idEtab='$id'";
@@ -216,13 +216,13 @@ function obtenirReqGroupesEtab($id)
             
 // Retourne le nombre de chambres occupées par le groupe transmis pour l'id étab
 // et l'id groupe transmis
-function obtenirNbOccupGroupe($connexion, $idEtab, $idEquipe)
+function obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe)
 {
    $req="select nombreChambres From Attribution where idEtab='$idEtab'
         and idE='$idEquipe'";
-   $rsAttribGroupe=mysql_query($req, $connexion);
-   if ($lgAttribGroupe=mysql_fetch_array($rsAttribGroupe))
-      return $lgAttribGroupe["nombreChambres"];
+   $rsAttribEquipe=mysqli_query($connexion, $req);
+   if ($lgAttribEquipe=mysqli_fetch_array($rsAttribEquipe))
+      return $lgAttribEquipe["nombreChambres"];
    else
       return 0;
 }

@@ -36,12 +36,12 @@ if ($nbEtab!=0)
    // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE D'UN TABLEAU COMPORTANT 2 LIGNES 
    // D'EN-TÊTE ET LE DÉTAIL DES ATTRIBUTIONS
    $req=obtenirReqEtablissementsAyantChambresAttribuées();
-   $rsEtab=mysql_query($req, $connexion);
-   $lgEtab=mysql_fetch_array($rsEtab);
+   $rsEtab=mysqli_query($connexion, $req);
+   $lgEtab=mysqli_fetch_array($rsEtab);
    // BOUCLE SUR LES ÉTABLISSEMENTS AYANT DÉJÀ DES CHAMBRES ATTRIBUÉES
    while($lgEtab!=FALSE)
    {
-      $idEtab=$lgEtab['id'];
+      $idEtab=$lgEtab['idEtablissement'];
       $nomEtab=$lgEtab['nom'];
    
       echo "
@@ -64,37 +64,37 @@ if ($nbEtab!=0)
       // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE 
       echo "
       <tr class='ligneTabQuad'>
-         <td width='65%' align='left'><i><strong>Nom groupe</strong></i></td>
+         <td width='65%' align='left'><i><strong>Nom Equipe</strong></i></td>
          <td width='35%' align='left'><i><strong>Chambres attribuées</strong></i>
          </td>
       </tr>";
         
       // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR GROUPE AFFECTÉ 
       // DANS L'ÉTABLISSEMENT       
-      $req=obtenirReqGroupesEtab($idEtab);
-      $rsGroupe=mysql_query($req, $connexion);
-      $lgGroupe=mysql_fetch_array($rsGroupe);
+      $req=obtenirReqEquipesEtab($idEtab);
+      $rsEquipe=mysqli_query($connexion, $req);
+      $lgEquipe=mysqli_fetch_array($rsEquipe);
                
       // BOUCLE SUR LES GROUPES (CHAQUE GROUPE EST AFFICHÉ EN LIGNE)
-      while($lgGroupe!=FALSE)
+      while($lgEquipe!=FALSE)
       {
-         $idGroupe=$lgGroupe['id'];
-         $nomGroupe=$lgGroupe['nom'];
+         $idEquipe=$lgEquipe['idE'];
+         $nomEquipe=$lgEquipe['nom'];
          echo "
          <tr class='ligneTabQuad'>
-            <td width='65%' align='left'>$nomGroupe</td>";
+            <td width='65%' align='left'>$nomEquipe</td>";
          // On recherche si des chambres ont déjà été attribuées à ce groupe
          // dans l'établissement
-         $nbOccupGroupe=obtenirNbOccupGroupe($connexion, $idEtab, $idGroupe);
+         $nbOccupEquipe=obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe);
          echo "
             <td width='35%' align='left'>$nbOccupGroupe</td>
          </tr>";
-         $lgGroupe=mysql_fetch_array($rsGroupe);
+         $lgEquipe=mysqli_fetch_array($rsEquipe);
       } // Fin de la boucle sur les groupes
       
       echo "
       </table><br>";
-      $lgEtab=mysql_fetch_array($rsEtab);
+      $lgEtab=mysqli_fetch_array($rsEtab);
    } // Fin de la boucle sur les établissements
 }
 
