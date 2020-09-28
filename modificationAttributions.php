@@ -62,14 +62,14 @@ class='tabQuadrille'>";
       <td>&nbsp;</td>";
       
    $req=obtenirReqEtablissementsOffrantChambres();
-   $rsEtab=mysql_query($req, $connexion);
-   $lgEtab=mysql_fetch_array($rsEtab);
+   $rsEtab=mysqli_query($connexion, $req);
+   $lgEtab=mysqli_fetch_array($rsEtab);
 
    // Boucle sur les établissements (pour afficher le nom de l'établissement et 
    // le nombre de chambres encore disponibles)
    while ($lgEtab!=FALSE)
    {
-      $idEtab=$lgEtab["id"];
+      $idEtab=$lgEtab["idEtablissement"];
       $nom=$lgEtab["nom"];
       $nbOffre=$lgEtab["nombreChambresOffertes"];
       $nbOccup=obtenirNbOccup($connexion, $idEtab);
@@ -79,7 +79,7 @@ class='tabQuadrille'>";
       echo "
       <td valign='top' width='$pourcCol%'><i>Disponibilités : $nbChLib </i> <br>
       $nom </td>";
-      $lgEtab=mysql_fetch_array($rsEtab);
+      $lgEtab=mysqli_fetch_array($rsEtab);
    }
    echo "
    </tr>"; 
@@ -88,25 +88,25 @@ class='tabQuadrille'>";
    // CHAMBRES ATTRIBUÉES ET LES LIENS POUR EFFECTUER OU MODIFIER LES ATTRIBUTIONS
          
    $req=obtenirReqIdNomGroupesAHeberger();
-   $rsGroupe=mysql_query($req, $connexion);
-   $lgGroupe=mysql_fetch_array($rsGroupe);
+   $rsEquipe=mysqli_query($connexion, $req);
+   $lgEquipe=mysqli_fetch_array($rsEquipe);
          
    // BOUCLE SUR LES GROUPES À HÉBERGER 
-   while ($lgGroupe!=FALSE)
+   while ($lgEquipe!=FALSE)
    {
-      $idGroupe=$lgGroupe['id'];
-      $nom=$lgGroupe['nom'];
+      $idEquipe=$lgEquipe['idE'];
+      $nom=$lgEquipe['nom'];
       echo "
       <tr class='ligneTabQuad'>
          <td width='25%'>$nom</td>";
       $req=obtenirReqEtablissementsOffrantChambres();
-      $rsEtab=mysql_query($req, $connexion);
-      $lgEtab=mysql_fetch_array($rsEtab);
+      $rsEtab=mysqli_query($connexion, $req);
+      $lgEtab=mysqli_fetch_array($rsEtab);
            
       // BOUCLE SUR LES ÉTABLISSEMENTS
       while ($lgEtab!=FALSE)
       {
-         $idEtab=$lgEtab["id"];
+         $idEtab=$lgEtab["idEtablissement"];
          $nbOffre=$lgEtab["nombreChambresOffertes"];
          $nbOccup=obtenirNbOccup($connexion, $idEtab);
                    
@@ -115,21 +115,21 @@ class='tabQuadrille'>";
                   
          // On recherche si des chambres ont déjà été attribuées à ce groupe
          // dans cet établissement
-         $nbOccupGroupe=obtenirNbOccupGroupe($connexion, $idEtab, $idGroupe);
+         $nbOccupEquipe=obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe);
          
          // Cas où des chambres ont déjà été attribuées à ce groupe dans cet
          // établissement
-         if ($nbOccupGroupe!=0)
+         if ($nbOccupEquipe!=0)
          {
             // Le nombre de chambres maximum pouvant être demandées est la somme 
             // du nombre de chambres libres et du nombre de chambres actuellement 
             // attribuées au groupe (ce nombre $nbmax sera transmis si on 
             // choisit de modifier le nombre de chambres)
-            $nbMax = $nbChLib + $nbOccupGroupe;
+            $nbMax = $nbChLib + $nbOccupEquipe;
             echo "
             <td class='reserve'>
-            <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbMax'>
-            $nbOccupGroupe</a></td>";
+            <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idEquipe=$idEquipe&amp;nbChambres=$nbMax'>
+            $nbOccupEquipe</a></td>";
          }
          else
          {
@@ -140,7 +140,7 @@ class='tabQuadrille'>";
             {
                echo "
                <td class='reserveSiLien'>
-               <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idGroupe=$idGroupe&amp;nbChambres=$nbChLib'>
+               <a href='donnerNbChambres.php?idEtab=$idEtab&amp;idEquipe=$idEquipe&amp;nbChambres=$nbChLib'>
                __</a></td>";
             }
             else
@@ -148,9 +148,9 @@ class='tabQuadrille'>";
                echo "<td class='reserveSiLien'>&nbsp;</td>";
             }
          }    
-         $lgEtab=mysql_fetch_array($rsEtab);
+         $lgEtab=mysqli_fetch_array($rsEtab);
       } // Fin de la boucle sur les établissements    
-      $lgGroupe=mysql_fetch_array($rsGroupe);  
+      $lgEquipe=mysqli_fetch_array($rsEquipe);  
    } // Fin de la boucle sur les groupes à héberger
 echo "
 </table>"; // Fin du tableau principal
