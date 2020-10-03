@@ -80,182 +80,87 @@ for ($i = 0; $i < 4; $i++) {
 $id[7] = $chars[rand(0, strlen($chars) - 1)];
 ?>
     <div class="mx-auto" style="width: 800px;">
-        <table class="table table-borderless">
+        <table class="table table-hover">
             <tr>
-                <td></td>
                 <td> id : <input type='text' class="form-control" name='id' <?php echo "value='" . $id . "'" ?> size='1'
                         maxlength='8' readonly>
+                    <br>
                 </td>
+                <td><td></td></td>
             </tr>
             <tr>
-
                 <td>Nom : <input type="text" class="form-control" name="nom" maxlength="45" required></td>
                 <td>Adresse :<input type="text" class="form-control" name="adresseRue" maxlength="45" required></td>
-                <td>Code Postal :<input type="number" class="form-control" name="codePostal" maxlength="5" required></td>
+                <td>Code Postal :<input type="number" class="form-control" name="codePostal" onKeyDown="if(this.value.length==5 && event.keyCode!=8) return false;"></td>
             </tr>
             <tr>
                 <td>Ville :<input type="text" class="form-control" name="ville" maxlength="35" required></td>
                 <td>Téléphone :<input type="tel" class="form-control" name="tel" maxlength="10" required></td>
-                <td>E-mail :<input type="email" class="form-control" name="adresseElectronique" maxlength="70" ></td>
+                <td>E-mail (non obligatoire) :<input type="email" class="form-control" name="adresseElectronique"
+                        maxlength="70"></td>
             </tr>
             <tr>
-                <td></td>
                 <br> <br>
-                <td>
-                    <strong> Type: </strong> <br>
-                    <input type='radio' name='type' value='1' checked> Etablissement Scolaire
-                    <br>
-                    <input type='radio' name='type' value='0'> autre
-                </td>
+                <td> <br> <strong> Type: </strong> </td>
+
+                <td> <br> <input type='radio' name='type' value='1' checked> Etablissement Scolaire </td>
+                <td> <br> <input type='radio' name='type' value='0'> autre </td>
+            </tr>
+
+            </td>
             </tr>
             <tr>
                 <td> <br> <br> <strong>Responsable :</strong></td>
+                </select>
+                <td> <br> Nom : <input type="text" class="form-control" name="nomResponsable" size="26" maxlength="25">
+                </td>
+                <td> <br> Prénom : <input type="text" class="form-control" name="prenomResponsable" size="26"
+                        maxlength="25"> </td>
+            </tr>
+            <tr>
+                <td></td>
                 <td> <br> Civilité :
-                    <!-- <select class="form-control" name='civiliteResponsable'> -->
-                    <?php
-                    echo "$civiliteResponsable&nbsp; $nomResponsable&nbsp; $prenomResponsable"
+                    <select class="form-control" name='civiliteResponsable'>
+                        <?php
+                    for ($i = 0; $i < 3; $i = $i + 1) {
+                    if ($tabCivilite[$i] == $civiliteResponsable) {
+                        echo "<option>".$tabCivilite[$i]."</option>";
+                    } else {
+                        echo "<option>".$tabCivilite[$i]."</option>";
+                        }
+                    }
+
                     ?>
                 </td>
                 <td> <br> Nombre chambres offertes :<input type="number" class="form-control"
-                        name="nombreChambresOffertes" size="1" maxlength="3"></td>
+                        name="nombreChambresOffertes" size="1" onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;"></td>
+
             </tr>
         </table>
     </div>
     <div class="mx-auto" style="width: 1000px;">
-    <table class="table table-borderless">
-        <thead>
-            <tr class='ligneTabNonQuad'>
-                <td width='85%'></td>
-                <td><button type="submit" class="btn btn-primary">Valider</button></td>
-            </tr>
-    </table>
+        <table class="table table-borderless">
+            <thead>
+                <tr class='ligneTabNonQuad'>
+                    <td width='85%'></td>
+                    <td><button type="submit" value="Valider" class="btn btn-primary mb-2">Valider</button></td>
+                </tr>
+        </table>
     </div>
     <?php
 
-// echo "
-// <form method='POST' action='creationEtablissement.php?'>
-//    <input type='hidden' value='validerCreEtab' name='action'>
-//    <table width='85%' align='center' cellspacing='0' cellpadding='0'
-//    class='tabNonQuadrille'>
-
-//       <tr class='enTeteTabNonQuad'>
-//          <td colspan='3'>Nouvel établissement</td>
-//       </tr>
-//       <tr class='ligneTabNonQuad'>
-//          <td> Id*: </td>
-//          <td><input type='text' value='$id' name='id' size ='10'
-//          maxlength='8'></td>
-//       </tr>";
-
-//       echo '
-//       <tr class="ligneTabNonQuad">
-//          <td> Nom*: </td>
-//          <td><input type="text" value="'.$nom.'" name="nom" size="50"
-//          maxlength="45"></td>
-//       </tr>
-//       <tr class="ligneTabNonQuad">
-//          <td> Adresse*: </td>
-//          <td><input type="text" value="'.$adresseRue.'" name="adresseRue"
-//          size="50" maxlength="45"></td>
-//       </tr>
-//       <tr class="ligneTabNonQuad">
-//          <td> Code postal*: </td>
-//          <td><input type="text" value="'.$codePostal.'" name="codePostal"
-//          size="4" maxlength="5"></td>
-//       </tr>
-//       <tr class="ligneTabNonQuad">
-//          <td> Ville*: </td>
-//          <td><input type="text" value="'.$ville.'" name="ville" size="40"
-//          maxlength="35"></td>
-//       </tr>
-//       <tr class="ligneTabNonQuad">
-//          <td> Téléphone*: </td>
-//          <td><input type="text" value="'.$tel.'" name="tel" size ="20"
-//          maxlength="10"></td>
-//       </tr>
-//       <tr class="ligneTabNonQuad">
-//          <td> E-mail: </td>
-//          <td><input type="text" value="'.$adresseElectronique.'" name=
-//          "adresseElectronique" size ="75" maxlength="70"></td>
-//       </tr>
-//       <tr class="ligneTabNonQuad">
-//          <td> Type*: </td>
-//          <td>';
-//             if ($type==1)
-//             {
-//                echo "
-//                <input type='radio' name='type' value='1' checked>
-//                Etablissement Scolaire
-//                <input type='radio' name='type' value='0'>  Autre";
-//              }
-//              else
-//              {
-//                 echo "
-//                 <input type='radio' name='type' value='1'>
-//                 Etablissement Scolaire
-//                 <input type='radio' name='type' value='0' checked> Autre";
-//               }
-//            echo "
-//            </td>
-//          </tr>
-//          <tr class='ligneTabNonQuad'>
-//             <td colspan='2' ><strong>Responsable:</strong></td>
-//          </tr>
-//          <tr class='ligneTabNonQuad'>
-//             <td> Civilité*: </td>
-//             <td> <select name='civiliteResponsable'>";
-//                for ($i=0; $i<3; $i=$i+1)
-//                   if ($tabCivilite[$i]==$civiliteResponsable)
-//                   {
-//                      echo "<option selected>$tabCivilite[$i]</option>";
-//                   }
-//                   else
-//                   {
-//                      echo "<option>$tabCivilite[$i]</option>";
-//                   }
-//                echo '
-//                </select>&nbsp; &nbsp; &nbsp; &nbsp; Nom*:
-//                <input type="text" value="'.$nomResponsable.'" name=
-//                "nomResponsable" size="26" maxlength="25">
-//                &nbsp; &nbsp; &nbsp; &nbsp; Prénom:
-//                <input type="text"  value="'.$prenomResponsable.'" name=
-//                "prenomResponsable" size="26" maxlength="25">
-//             </td>
-//          </tr>
-//           <tr class="ligneTabNonQuad">
-//             <td> Nombre chambres offertes*: </td>
-//             <td><input type="text" value="'.$nombreChambresOffertes.'" name=
-//             "nombreChambresOffertes" size ="2" maxlength="3"></td>
-//          </tr>
-//    </table>';
-
-//    echo "
-//    <table align='center' cellspacing='15' cellpadding='0'>
-//       <tr>
-//          <td align='right'><input type='submit' value='Valider' name='valider'>
-//          </td>
-//          <td align='left'><input type='reset' value='Annuler' name='annuler'>
-//          </td>
-//       </tr>
-//       <tr>
-//          <td colspan='2' align='center'><a href='listeEtablissements.php'>Retour</a>
-//          </td>
-//       </tr>
-//    </table>
-// </form>";
-
-// // En cas de validation du formulaire : affichage des erreurs ou du message de
-// // confirmation
-// if ($action=='validerCreEtab')
-// {
-//    if (nbErreurs()!=0)
-//    {
-//       afficherErreurs();
-//    }
-//    else
-//    {
-//       echo '<meta http-equiv="refresh" content="0 ; URL=listeEtablissements.php">';
-//    }
-// }
+// En cas de validation du formulaire : affichage des erreurs ou du message de
+// confirmation
+if ($action=='validerCreEtab')
+{
+   if (nbErreurs()!=0)
+   {
+      afficherErreurs();
+   }
+   else
+   {
+      echo '<meta http-equiv="refresh" content="0 ; URL=listeEtablissements.php">';
+   }
+}
 
 ?>
