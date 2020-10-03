@@ -32,7 +32,7 @@ $adresse = explode("/", $adresse);
     </li>
     <li class="nav-item">
         <?php
-    if (strpos($adresse["2"], "Etablissements.php") !== false || strpos($adresse["2"], "Etablissement.php") !== false) {
+    if (strpos($adresse["2"], "Etablissement") !== false) {
         echo '<a class="nav-link active" href="listeEtablissements.php">Gestion établissements</a>';
     }
     else {
@@ -42,7 +42,7 @@ $adresse = explode("/", $adresse);
     </li>
     <li class="nav-item">
         <?php
-    if (strpos($adresse["2"], "Attributions.php")!== false)  {
+    if (strpos($adresse["2"], "Attributions")!== false)  {
         echo '<a class="nav-link active" href="consultationAttributions.php">Attributions chambres</a>';
     }
     else {
