@@ -41,46 +41,63 @@ $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
 <center>
     <h2> <?php echo $nom; ?> </h2>
 </center>
-<div class="mx-auto" style="width: 200px;">
-    <table class="table table-borderless">
-    <tr> 
-    <td> id : </td>
-    <td> <?php echo $idEtablissement; ?> </td>
-    </tr>
-    <tr> 
-    <td> adresse : </td>
-    <td> <?php echo $adresseRue; ?> </td>
-    </tr>
-    <tr> 
-    <td> Code Postal : </td>
-    <td> <?php echo $codePostal; ?> </td>
-    </tr>
-    <tr> 
-    <td> Ville : </td>
-    <td> <?php echo $ville; ?> </td>
-    </tr>
-    <tr> 
-    <td> Téléphone : </td>
-    <td> <?php echo $tel; ?> </td>
-    </tr>
-    <tr> 
-    <td>E-Mail : </td>
-    <td> <?php echo $adresseElectronique; ?> </td>
-    </tr>
-    <tr> 
-    <td> Type : </td>
-    <td> <?php echo $type; ?> </td>
-    </tr>
-    <tr> 
-    <td> Responsable : </td>
-    <td> <?php echo $nomResponsable; ?> </td>
-    </tr>
-    <tr> 
-    <td> Offre : </td>
-    <td> <?php echo $nombreChambresOffertes; ?> </td>
-    </tr>
-
-        <?php
+<div class="mx-auto" style="width: 700px;">
+    <table class="table table-hover">
+        <tr>
+            <td> id : </td>
+            <td></td>
+            <td> <?php echo $idEtablissement; ?> </td>
+        </tr>
+        <tr>
+            <td> adresse : </td>
+            <td></td>
+            <td> <?php echo $adresseRue; ?> </td>
+        </tr>
+        <tr>
+            <td> Code Postal : </td>
+            <td></td>
+            <td> <?php echo $codePostal; ?> </td>
+        </tr>
+        <tr>
+            <td> Ville : </td>
+            <td></td>
+            <td> <?php echo $ville; ?> </td>
+        </tr>
+        <tr>
+            <td> Téléphone : </td>
+            <td></td>
+            <td> <?php echo $tel; ?> </td>
+        </tr>
+        <tr>
+            <td>E-Mail : </td>
+            <td></td>
+            <td> <?php echo $adresseElectronique; ?> </td>
+        </tr>
+        <tr>
+            <td> Type : </td>
+            <td></td>
+            <td> 
+            <?php
+                if ($type == 1) {
+                    echo "Etablissement Scolaire";
+                }
+                else {
+                    echo "Autre";
+                }
+            ?> </td>
+        </tr>
+        <tr>
+            <td> Responsable : </td>
+            <td></td>
+            <td> <?php echo $nomResponsable; ?> </td>
+        </tr>
+        <tr>
+            <td> Offre : </td>
+            <td></td>
+            <td> <?php echo $nombreChambresOffertes; ?> </td>
+        </tr>
+    </table>
+    <?php
 // echo "
 // <table width='60%' cellspacing='0' cellpadding='0' align='center' 
 // class='tabNonQuadrille'>
