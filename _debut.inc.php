@@ -53,10 +53,13 @@ $adresse = explode("/", $adresse);
     </li>
 </ul>
 <?php 
-// Code à finir -- >
-//
-// $url = $_SERVER['PHP_SELF'] ;
-// echo($url) ; 
+//------------ code php non fini ------------
+// $oldAdresse = $_SERVER['HTTP_REFERER'];
+// $oldAdresse = explode("/", $oldAdresse);
+// var_dump($adresse[2]);
+// echo "<br>";
+// var_dump($oldAdresse[4]);
+// ------------------------------------------
 ?>
 
 </table>
