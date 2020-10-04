@@ -52,6 +52,12 @@ $adresse = explode("/", $adresse);
 
     </li>
 </ul>
+<?php 
+// Code à finir -- >
+//
+// $url = $_SERVER['PHP_SELF'] ;
+// echo($url) ; 
+?>
 
 </table>
 <br>
