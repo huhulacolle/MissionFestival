@@ -86,12 +86,15 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
                         maxlength='8' readonly>
                     <br>
                 </td>
-                <td><td></td></td>
+                <td>
+                <td></td>
+                </td>
             </tr>
             <tr>
                 <td>Nom : <input type="text" class="form-control" name="nom" maxlength="45" required></td>
                 <td>Adresse :<input type="text" class="form-control" name="adresseRue" maxlength="45" required></td>
-                <td>Code Postal :<input type="number" class="form-control" name="codePostal" onKeyDown="if(this.value.length==5 && event.keyCode!=8) return false;"></td>
+                <td>Code Postal :<input type="number" class="form-control" name="codePostal"
+                        onKeyDown="if(this.value.length==5 && event.keyCode!=8) return false;"></td>
             </tr>
             <tr>
                 <td>Ville :<input type="text" class="form-control" name="ville" maxlength="35" required></td>
@@ -133,7 +136,8 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
                     ?>
                 </td>
                 <td> <br> Nombre chambres offertes :<input type="number" class="form-control"
-                        name="nombreChambresOffertes" size="1" onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;"></td>
+                        name="nombreChambresOffertes" size="1"
+                        onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;"></td>
 
             </tr>
         </table>

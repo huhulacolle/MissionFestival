@@ -76,15 +76,15 @@ if (!selectBase($connexion))
 </div>
 </table>
 <div class="mx-auto" style="width: 1200px;">
-<table class="table table-borderless">
-    <thead>
-        <tr class='ligneTabNonQuad'>
-            <td width='70%'></td>
+    <table class="table table-borderless">
+        <thead>
+            <tr class='ligneTabNonQuad'>
+                <td width='70%'></td>
 
-            <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
-                    Création d'un établissement</a></td>
-        </tr>
-</table>
+                <td colspan='4'><a href='creationEtablissement.php?action=demanderCreEtab'>
+                        Création d'un établissement</a></td>
+            </tr>
+    </table>
 </div>
 
 <?php
