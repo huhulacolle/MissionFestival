@@ -31,9 +31,6 @@
         </ul>
 
     </div>
-    <center>
-    <img src="https://thezouple.com/public/img/dark-sm-logo.png"  sizes="100%" >
-    </center>
 
 </body>
 
