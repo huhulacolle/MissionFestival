@@ -7,15 +7,10 @@ include("_controlesEtGestionErreurs.inc.php");
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 $connexion=connect();
+$ut8=utf8($connexion);
 if (!$connexion)
 {
    ajouterErreur("Echec de la connexion au serveur MySql");
-   afficherErreurs();
-   exit();
-}
-if (!selectBase($connexion))
-{
-   ajouterErreur("La base de données festival est inexistante ou non accessible");
    afficherErreurs();
    exit();
 }
@@ -36,8 +31,8 @@ if ($nbEtab!=0)
    // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE D'UN TABLEAU COMPORTANT 2 LIGNES 
    // D'EN-TÊTE ET LE DÉTAIL DES ATTRIBUTIONS
    $req=obtenirReqEtablissementsAyantChambresAttribuées();
-   $rsEtab=mysqli_query($connexion, $req);
-   $lgEtab=mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    // BOUCLE SUR LES ÉTABLISSEMENTS AYANT DÉJÀ DES CHAMBRES ATTRIBUÉES
    while($lgEtab!=FALSE)
    {
@@ -73,8 +68,8 @@ if ($nbEtab!=0)
       // AFFICHAGE DU DÉTAIL DES ATTRIBUTIONS : UNE LIGNE PAR GROUPE AFFECTÉ 
       // DANS L'ÉTABLISSEMENT       
       $req=obtenirReqEquipesEtab($idEtab);
-      $rsEquipe=mysqli_query($connexion, $req);
-      $lgEquipe=mysqli_fetch_array($rsEquipe);
+      $rsEquipe=$connexion->query($req);
+      $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);
                
       // BOUCLE SUR LES GROUPES (CHAQUE GROUPE EST AFFICHÉ EN LIGNE)
       while($lgEquipe!=FALSE)
@@ -90,12 +85,12 @@ if ($nbEtab!=0)
          echo "
             <td width='35%' align='left'>$nbOccupEquipe</td>
          </tr>" ;
-         $lgEquipe=mysqli_fetch_array($rsEquipe);
+         $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);
       } // Fin de la boucle sur les groupes
       
       echo "
       </table><br><br>";
-      $lgEtab=mysqli_fetch_array($rsEtab);
+      $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    } // Fin de la boucle sur les établissements
 }
 
