@@ -28,10 +28,10 @@ $nbEtab=obtenirNbEtabOffrantChambres($connexion);
 if ($nbEtab!=0)
 {
    echo "
-   <table width='75%' cellspacing='0' cellpadding='0' align='center'
+   <table width='30%' cellspacing='0' cellpadding='0' align='right'
    <tr><td>
    <a href='modificationAttributions.php?action=demanderModifAttrib'>
-   Effectuer ou modifier les attributions</a></td></tr></table><br><br>";
+   Effectuer ou modifier les attributions</a></td></tr></table><br><br><br>";
    
    // POUR CHAQUE ÉTABLISSEMENT : AFFICHAGE D'UN TABLEAU COMPORTANT 2 LIGNES 
    // D'EN-TÊTE ET LE DÉTAIL DES ATTRIBUTIONS
@@ -43,9 +43,10 @@ if ($nbEtab!=0)
    {
       $idEtab=$lgEtab['idEtablissement'];
       $nomEtab=$lgEtab['nom'];
-   
+      
       echo "
-      <table width='75%' cellspacing='0' cellpadding='0' align='center' 
+      <div class='mx-auto' style='width: 700px;'>
+      <table class='table table-bordered' width='60%' cellspacing='0' cellpadding='0' align='center' 
       class='tabQuadrille'>";
       
       $nbOffre=$lgEtab["nombreChambresOffertes"];
@@ -56,7 +57,7 @@ if ($nbEtab!=0)
       // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE 
       echo "
       <tr class='enTeteTabQuad'>
-         <td colspan='2' align='left'><strong>$nomEtab</strong>&nbsp;
+         <td colspan='2' align='center'><strong>$nomEtab</strong>&nbsp;
          (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : $nbChLib)
          </td>
       </tr>";
@@ -88,12 +89,12 @@ if ($nbEtab!=0)
          $nbOccupEquipe=obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe);
          echo "
             <td width='35%' align='left'>$nbOccupEquipe</td>
-         </tr>";
+         </tr>" ;
          $lgEquipe=mysqli_fetch_array($rsEquipe);
       } // Fin de la boucle sur les groupes
       
       echo "
-      </table><br>";
+      </table><br><br>";
       $lgEtab=mysqli_fetch_array($rsEtab);
    } // Fin de la boucle sur les établissements
 }
