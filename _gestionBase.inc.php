@@ -4,13 +4,17 @@
 
 function connect()
 {
- $hote="localhost";
-   $login="root";
-   $mdp="";
-
-   return new PDO("mysql:host=$hote;dbname=FestivalM2L", $login, $mdp);
+   try
+   {
+      $hote="localhost";
+      $login="root";
+      $mdp="";
+      $connect= new PDO("mysql:host=$hote;dbname=FestivalM2L", $login, $mdp);
+   }
+   catch(PDOException $e) {
+      die('Erreur : ' . $e->getMessage());}
+   return $connect;
 }
-
 function utf8($connexion)
 {
    return $connexion->exec("Set character set utf8");

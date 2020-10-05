@@ -7,12 +7,7 @@ include "_controlesEtGestionErreurs.inc.php";
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 $connexion = connect();
-if (!$connexion) {
-    ajouterErreur("Echec de la connexion au serveur MySql");
-    afficherErreurs();
-    exit();
-}
-
+$ut8=utf8($connexion);
 // CRÉER UN ÉTABLISSEMENT
 
 // Déclaration du tableau des civilités
