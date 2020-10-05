@@ -89,7 +89,6 @@ tr.enTeteTabQuad
 {
    background-image:url('../images/xpBarre.jpg');
    height:21px;
-   text-align:center;
 } 
 
 /* Style pour les lignes (autres que la 1ère ligne d'en-tête) des tableaux 

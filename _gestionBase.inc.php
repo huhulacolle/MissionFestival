@@ -232,5 +232,10 @@ function obtenirNbOccupEtablissement($connexion, $idEtab)
    $req="select sum(nombreChambres) as reservations From Attribution where idEtab='$idEtab'";
    return $req;
 }
+function obtenirNbOccupEquipeTotal($connexion, $idEquipe)
+{
+   $req="select sum(nombreChambres) as reservations From Attribution where idEquipe='$idEquipe'";
+   return $req;
+}
 ?>
 

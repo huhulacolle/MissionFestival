@@ -1,6 +1,6 @@
 <title>Acceuil > Attribution chambres > Modification Attribution</title>
 <?php
-
+$align = "style='text-align:center;'";
 include("_debut.inc.php");
 include("_gestionBase.inc.php"); 
 include("_controlesEtGestionErreurs.inc.php");
@@ -19,7 +19,7 @@ $ut8=utf8($connexion);
 // Recherche du nombre d'établissements offrant des chambres pour le 
 // dimensionnement des colonnes
 $nbEtabOffrantChambres=obtenirNbEtabOffrantChambres($connexion);
-$nb=$nbEtabOffrantChambres+1;
+$nb=$nbEtabOffrantChambres+2;
 // Détermination du pourcentage de largeur des colonnes "établissements"
 $pourcCol=50/$nbEtabOffrantChambres;
 
@@ -51,7 +51,8 @@ class='tabQuadrille'>";
    // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
    echo "
    <tr class='enTeteTabQuad'>
-      <td colspan=$nb><strong>Attributions</strong></td>
+      <td colspan=$nb $align
+   ><strong>Attributions</strong></td>
    </tr>";
       
    // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
@@ -78,7 +79,7 @@ class='tabQuadrille'>";
       $nom </td>";
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    }
-   echo "
+   echo "<td valign='top' width='7%'><i> Résevations totales <br> pour chaque équipes</i></td>
    </tr>"; 
 
    // CORPS DU TABLEAU : CONSTITUTION D'UNE LIGNE PAR GROUPE À HÉBERGER AVEC LES 
@@ -145,10 +146,15 @@ class='tabQuadrille'>";
             {
                echo "<td class='reserveSiLien'>&nbsp;</td>";
             }
-         }    
+         }
          $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
       } // Fin de la boucle sur les établissements    
       $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);  
+      $nbOccupTotal=obtenirNbOccupEquipeTotal($connexion,$idEquipe);
+      $nbOccupTotal=$connexion->query($nbOccupTotal);
+      $nbOccupTotal=$nbOccupTotal->fetch(PDO::FETCH_ASSOC);
+      $nbOccupParEquipe=$nbOccupTotal['reservations'];
+      echo"<td> $nbOccupParEquipe</td>"; 
    } // Fin de la boucle sur les groupes à héberger
 echo "
 </div>
