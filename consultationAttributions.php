@@ -69,9 +69,10 @@ if ($nbEtab!=0)
       {
          $idEquipe=$lgEquipe['idE'];
          $nomEquipe=$lgEquipe['nom'];
+         $nomPays=$lgEquipe['nomPays'];
          echo "
          <tr class='ligneTabQuad'>
-            <td width='65%' align='left'>$nomEquipe</td>";
+            <td width='65%' align='left'><strong>$nomEquipe</strong> - $nomPays</td>";
          // On recherche si des chambres ont déjà été attribuées à ce groupe
          // dans l'établissement
          $nbOccupEquipe=obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe);

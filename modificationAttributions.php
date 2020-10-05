@@ -61,8 +61,7 @@ class='tabQuadrille'>";
       $idEtab=$lgEtab["idEtablissement"];
       $nom=$lgEtab["nom"];
       $nbOffre=$lgEtab["nombreChambresOffertes"];
-      $nbOccup=obtenirNbOccup($connexion, $idEtab);
-                    
+      $nbOccup=obtenirNbOccup($connexion, $idEtab);                    
       // Calcul du nombre de chambres libres
       $nbChLib = $nbOffre - $nbOccup;
       echo "
@@ -85,9 +84,10 @@ class='tabQuadrille'>";
    {
       $idEquipe=$lgEquipe['idE'];
       $nom=$lgEquipe['nom'];
+      $paysEquipe=$lgEquipe['nomPays'];
       echo "
       <tr class='ligneTabQuad'>
-         <td width='25%'>$nom</td>";
+         <td width='25%'> <strong>$nom</strong> - $paysEquipe</td>";
       $req=obtenirReqEtablissementsOffrantChambres();
       $rsEtab=$connexion->query($req);
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
