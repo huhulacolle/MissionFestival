@@ -7,12 +7,7 @@ include "_controlesEtGestionErreurs.inc.php";
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 $connexion = connect();
-if (!$connexion) {
-    ajouterErreur("Echec de la connexion au serveur MySql");
-    afficherErreurs();
-    exit();
-}
-
+$ut8=utf8($connexion);
 // CRÉER UN ÉTABLISSEMENT
 
 // Déclaration du tableau des civilités
@@ -78,14 +73,11 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
         <table class="table table-hover">
             <tr>
                 <td> id : <input type='text' class="form-control" name='id' <?php echo "value='" . $id . "'" ?> size='1'
-                        maxlength='8' readonly>    
-                            <div class="bouton">
-                    <td><button type="submit" value="Changer" class="btn btn-success mb-2" onclick='window.location.reload(false)' value="Rafraichir"/>Changer</button></td>
-                             </div>
+                        maxlength='8' readonly>
                     <br>
                 </td>
                 <td>
-                <td> </td>
+                <td></td>
                 </td>
             </tr>
             <tr>

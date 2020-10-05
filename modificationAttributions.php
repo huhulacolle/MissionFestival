@@ -8,12 +8,6 @@ include("_controlesEtGestionErreurs.inc.php");
 
 $connexion=connect();
 $ut8=utf8($connexion);
-if (!$connexion)
-{
-   ajouterErreur("Echec de la connexion au serveur MySql");
-   afficherErreurs();
-   exit();
-}
 
 // EFFECTUER OU MODIFIER LES ATTRIBUTIONS POUR L'ENSEMBLE DES ÉTABLISSEMENTS
 
