@@ -33,8 +33,7 @@ echo "
    echo "
    </select></h5>
    <button type='submit'  class='btn btn-success mb-2' onclick='window.location.reload(false)' value='Rafraichir'/>Valider</button>&nbsp&nbsp&nbsp&nbsp
-   // <button type='submit'  class='btn btn-danger mb-2' onclick='window.location.reload(false)' value='Annuler'/>Annuler</button><br><br>
-   <a href='modificationAttributions.php?action=demanderModifAttrib'>Retour</a>
+   <a href='modificationAttributions.php?action=demanderModifAttrib' class='btn btn-danger mb-2' role='button'>Annuler</a>
    </center>
 </form>";
 
