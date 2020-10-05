@@ -73,11 +73,7 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
         <table class="table table-hover">
             <tr>
                 <td> id : <input type='text' class="form-control" name='id' <?php echo "value='" . $id . "'" ?> size='1'
-                        maxlength='8' readonly>    
-                            <div class="bouton">
-                    <td><button type="submit" value="Changer" class="btn btn-success mb-2" onclick='window.location.reload(false)' value="Rafraichir"/>Changer</button></td>
-                             </div>
-                    <br>
+                        maxlength='8' readonly>
                 </td>
                 <td>
                 <td> </td>
