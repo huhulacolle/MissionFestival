@@ -6,19 +6,14 @@ include("_controlesEtGestionErreurs.inc.php");
 
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 $connexion=connect();
-$selection=(selectBase($connexion));
+$ut8=utf8($connexion);
 if (!$connexion)
 {
    $AjoutErreur=ajouterErreur("Echec de la connexion au serveur MySql");
    afficherErreurs();
    exit();
 }
-if (!selectBase($connexion))
-{
-   ajouterErreur("La base de données festival est inexistante ou non accessible");
-   afficherErreurs();
-   exit();
-}
+
 
 // AFFICHER L'ENSEMBLE DES ÉTABLISSEMENTS
 // CETTE PAGE CONTIENT UN TABLEAU CONSTITUÉ D'1 LIGNE D'EN-TÊTE ET D'1 LIGNE PAR
@@ -34,8 +29,8 @@ if (!selectBase($connexion))
             </tr>
             <?php
        $req=obtenirReqEtablissements();
-   $rsEtab=mysqli_query( $connexion,$req);
-   $lgEtab=mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    // BOUCLE SUR LES ÉTABLISSEMENTS
    while ($lgEtab!=FALSE)
    {
@@ -43,7 +38,7 @@ if (!selectBase($connexion))
       $nom=$lgEtab['nom'];
       echo"
       <tr class='ligneTabNonQuad'>
-         <td width='52%'>$nom</td>
+         <td width='44%'>$nom</td>
          
          <td width='16%' align='center'> 
          <a href='detailEtablissement.php?idEtablissement=$idEtablissement'>
@@ -64,10 +59,15 @@ if (!selectBase($connexion))
          }
          else
          {
+            $occ=obtenirNbOccupEtablissement($connexion, $lgEtab['idEtablissement']);
+            $occ=$connexion->query($occ);
+            $occ=$occ->fetch(PDO::FETCH_ASSOC);
+            $nboccupLibres = $lgEtab['nombreChambresOffertes'] - $occ['reservations'] ;
             echo "
-            <td width='16%'><center>Supprimer</center></td>";          
+            <td width='20%' align='center'> 
+            Chambres libres : $nboccupLibres</td>";          
 			}
-      $lgEtab=mysqli_fetch_array($rsEtab);
+      $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    }   
    echo "
 

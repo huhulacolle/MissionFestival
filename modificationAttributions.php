@@ -7,15 +7,10 @@ include("_controlesEtGestionErreurs.inc.php");
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 $connexion=connect();
+$ut8=utf8($connexion);
 if (!$connexion)
 {
    ajouterErreur("Echec de la connexion au serveur MySql");
-   afficherErreurs();
-   exit();
-}
-if (!selectBase($connexion))
-{
-   ajouterErreur("La base de données festival est inexistante ou non accessible");
    afficherErreurs();
    exit();
 }
@@ -62,8 +57,8 @@ class='tabQuadrille'>";
       <td>&nbsp;</td>";
       
    $req=obtenirReqEtablissementsOffrantChambres();
-   $rsEtab=mysqli_query($connexion, $req);
-   $lgEtab=mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
 
    // Boucle sur les établissements (pour afficher le nom de l'établissement et 
    // le nombre de chambres encore disponibles)
@@ -79,7 +74,7 @@ class='tabQuadrille'>";
       echo "
       <td valign='top' width='$pourcCol%'><i>Disponibilités : $nbChLib </i> <br>
       $nom </td>";
-      $lgEtab=mysqli_fetch_array($rsEtab);
+      $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    }
    echo "
    </tr>"; 
@@ -88,8 +83,8 @@ class='tabQuadrille'>";
    // CHAMBRES ATTRIBUÉES ET LES LIENS POUR EFFECTUER OU MODIFIER LES ATTRIBUTIONS
          
    $req=obtenirReqIdNomEquipeAHeberger();
-   $rsEquipe=mysqli_query($connexion, $req);
-   $lgEquipe=mysqli_fetch_array($rsEquipe);
+   $rsEquipe=$connexion->query($req);
+   $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);
          
    // BOUCLE SUR LES GROUPES À HÉBERGER 
    while ($lgEquipe!=FALSE)
@@ -100,8 +95,8 @@ class='tabQuadrille'>";
       <tr class='ligneTabQuad'>
          <td width='25%'>$nom</td>";
       $req=obtenirReqEtablissementsOffrantChambres();
-      $rsEtab=mysqli_query($connexion, $req);
-      $lgEtab=mysqli_fetch_array($rsEtab);
+      $rsEtab=$connexion->query($req);
+      $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
            
       // BOUCLE SUR LES ÉTABLISSEMENTS
       while ($lgEtab!=FALSE)
@@ -148,9 +143,9 @@ class='tabQuadrille'>";
                echo "<td class='reserveSiLien'>&nbsp;</td>";
             }
          }    
-         $lgEtab=mysqli_fetch_array($rsEtab);
+         $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
       } // Fin de la boucle sur les établissements    
-      $lgEquipe=mysqli_fetch_array($rsEquipe);  
+      $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);  
    } // Fin de la boucle sur les groupes à héberger
 echo "
 </table>"; // Fin du tableau principal

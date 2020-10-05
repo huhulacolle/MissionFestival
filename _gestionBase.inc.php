@@ -7,23 +7,19 @@ function connect()
  $hote="localhost";
    $login="root";
    $mdp="";
-   return mysqli_connect($hote, $login, $mdp);
-}
-function selectBase($connexion)
-{
-   $bd="FestivalM2L";
-   $query="SET CHARACTER SET utf8";
-   // Modification du jeu de caractères de la connexion
-   $res=mysqli_query($connexion, $query); 
-   $ok=mysqli_select_db( $connexion, $bd);
-   return $ok;
+
+   return new PDO("mysql:host=$hote;dbname=FestivalM2L", $login, $mdp);
 }
 
+function utf8($connexion)
+{
+   return $connexion->exec("Set character set utf8");
+}
 // FONCTIONS DE GESTION DES ÉTABLISSEMENTS
 
 function obtenirReqEtablissements()
 {
-   $req="select idEtablissement, nom from Etablissement order by idEtablissement";
+   $req="select idEtablissement, nom,nombreChambresOffertes from Etablissement order by idEtablissement";
    return $req;
 }
 
@@ -44,14 +40,14 @@ function obtenirReqEtablissementsAyantChambresAttribuées()
 function obtenirDetailEtablissement($connexion, $id)
 {
    $req="select * from Etablissement where idEtablissement='$id'";
-   $rsEtab=mysqli_query($connexion, $req);
-   return mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   return $rsEtab->fetch(PDO::FETCH_ASSOC);
 }
 
 function supprimerEtablissement($connexion, $id)
 {
    $req="delete from Etablissement where idEtablissement='$id'";
-   mysqli_query($connexion, $req);
+   $connexion->exec($req);
 }
  
 function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, 
@@ -73,7 +69,7 @@ function modifierEtablissement($connexion, $id, $nom, $adresseRue, $codePostal,
          '$nomResponsable',prenomResponsable='$prenomResponsable',
          nombreChambresOffertes='$nombreChambresOffertes' where idEtablissement='$id'";
    
-   mysqli_query($connexion, $req);
+   $connexion->exec($req);
 }
 
 function creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal, 
@@ -93,15 +89,15 @@ function creerEtablissement($connexion, $id, $nom, $adresseRue, $codePostal,
          '$civiliteResponsable', '$nomResponsable', '$prenomResponsable',
          '$nombreChambresOffertes')";
    
-   mysqli_query($connexion,$req);
+   $connexion->query($req);
 }
 
 
 function estUnIdEtablissement($connexion, $id)
 {
    $req="select * from Etablissement where idEtablissement='$id'";
-   $rsEtab=mysqli_query($connexion, $req);
-   return mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   return $rsEtab->fetch(PDO::FETCH_ASSOC);
 }
 
 function estUnNomEtablissement($connexion, $mode, $id, $nom)
@@ -118,15 +114,15 @@ function estUnNomEtablissement($connexion, $mode, $id, $nom)
    {
       $req="select * from Etablissement where nom='$nom' and idEtablissement!='$id'";
    }
-   $rsEtab=mysqli_query($connexion, $req);
-   return mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   return $rsEtab->fetch(PDO::FETCH_ASSOC);
 }
 
 function obtenirNbEtab($connexion)
 {
    $req="select count(*) as nombreEtab from Etablissement";
-   $rsEtab=mysqli_query($connexion, $req);
-   $lgEtab=mysqli_fetch_array($rsEtab);
+   $rsEtab=$connexion->query($req);
+   $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    return $lgEtab["nombreEtab"];
 }
 
@@ -134,8 +130,8 @@ function obtenirNbEtabOffrantChambres($connexion)
 {
    $req="select count(*) as nombreEtabOffrantChambres from Etablissement where 
          nombreChambresOffertes!=0";
-   $rsEtabOffrantChambres=mysqli_query($connexion, $req);
-   $lgEtabOffrantChambres=mysqli_fetch_array($rsEtabOffrantChambres);
+   $rsEtabOffrantChambres=$connexion->query($req);
+   $lgEtabOffrantChambres=$rsEtabOffrantChambres->fetch(PDO::FETCH_ASSOC);
    return $lgEtabOffrantChambres["nombreEtabOffrantChambres"];
 }
 
@@ -159,8 +155,8 @@ function obtenirReqIdNomEquipeAHeberger()
 function obtenirNomEquipe($connexion, $id)
 {
    $req="select nom from Equipe where idE='$id'";
-   $rsEquipe=mysqli_query($connexion,$req);
-   $lgEquipe=mysqli_fetch_array($rsEquipe);
+   $rsEquipe=$connexion->query($req);
+   $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);
    return $lgEquipe["nom"];
 }
 
@@ -170,8 +166,8 @@ function obtenirNomEquipe($connexion, $id)
 function existeAttributionsEtab($connexion, $idEtablissement)
 {
    $req="select * From Attribution where idEtab='$idEtablissement'";
-   $rsAttrib=mysqli_query($connexion, $req);
-   return mysqli_fetch_array($rsAttrib);
+   $rsAttrib=$connexion->query($req);
+   return $rsAttrib->fetch(PDO::FETCH_ASSOC);
 }
 
 // Retourne le nombre de chambres occupées pour l'id étab transmis
@@ -179,8 +175,8 @@ function obtenirNbOccup($connexion, $idEtab)
 {
    $req="select IFNULL(sum(nombreChambres), 0) as totalChambresOccup from
         Attribution where idEtab='$idEtab'";
-   $rsOccup=mysqli_query($connexion, $req);
-   $lgOccup=mysqli_fetch_array($rsOccup);
+   $rsOccup=$connexion->query($req);
+   $lgOccup=$rsOccup->fetch(PDO::FETCH_ASSOC);
    return $lgOccup["totalChambresOccup"];
 }
 
@@ -190,8 +186,8 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
 {
    $req="select count(*) as nombreAttribGroupe from Attribution where idEtab=
         '$idEtab' and idEquipe='$idEquipe'";
-   $rsAttrib=mysqli_query($connexion, $req);
-   $lgAttrib=mysqli_fetch_array($rsAttrib);
+   $rsAttrib=$connexion->query($req);
+   $lgAttrib=$rsAttrib->fetch(PDO::FETCH_ASSOC);
    if ($nbChambres==0)
       $req="delete from Attribution where idEtab='$idEtab' and idEquipe='$idEquipe'";
    else
@@ -202,7 +198,7 @@ function modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres)
       else
          $req="insert into Attribution values('$idEtab','$idEquipe', $nbChambres)";
    }
-   mysqli_query($connexion, $req);
+   $connexion->exec($req);
 }
 
 // Retourne la requête permettant d'obtenir les id et noms des groupes affectés
@@ -220,12 +216,17 @@ function obtenirNbOccupEquipe($connexion, $idEtab, $idEquipe)
 {
    $req="select nombreChambres From Attribution where idEtab='$idEtab'
         and idEquipe='$idEquipe'";
-   $rsAttribEquipe=mysqli_query($connexion, $req);
-   if ($lgAttribEquipe=mysqli_fetch_array($rsAttribEquipe))
+   $rsAttribEquipe=$connexion->query($req);
+   if ($lgAttribEquipe=$rsAttribEquipe->fetch(PDO::FETCH_ASSOC))
       return $lgAttribEquipe["nombreChambres"];
    else
       return 0;
 }
 
+function obtenirNbOccupEtablissement($connexion, $idEtab)
+{
+   $req="select sum(nombreChambres) as reservations From Attribution where idEtab='$idEtab'";
+   return $req;
+}
 ?>
 

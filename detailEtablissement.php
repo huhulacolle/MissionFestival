@@ -7,19 +7,13 @@ include("_controlesEtGestionErreurs.inc.php");
 // CONNEXION AU SERVEUR MYSQL PUIS SÉLECTION DE LA BASE DE DONNÉES festival
 
 $connexion=connect();
+$ut8=utf8($connexion);
 if (!$connexion)
 {
    ajouterErreur("Echec de la connexion au serveur MySql");
    afficherErreurs();
    exit();
 }
-if (!selectBase($connexion))
-{
-   ajouterErreur("La base de données festival est inexistante ou non accessible");
-   afficherErreurs();
-   exit();
-}
-
 $idEtablissement=$_REQUEST['idEtablissement'];  
 
 // OBTENIR LE DÉTAIL DE L'ÉTABLISSEMENT SÉLECTIONNÉ
