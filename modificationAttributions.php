@@ -36,7 +36,15 @@ if ($action=='validerModifAttrib')
 }
 
 echo "
-<table width='80%' cellspacing='0' cellpadding='0' align='center' 
+<table align='center' width='85%'>
+    <tr>
+        <td width='34%' align='left'><a href='consultationAttributions.php'>Retour</a>
+        </td>
+    </tr>
+</table>
+<br>
+<div class='mx-auto' style='width: 2000px;'>
+<table class='table table-bordered' width='80%' cellspacing='0' cellpadding='0' align='center' 
 class='tabQuadrille'>";
 
    // AFFICHAGE DE LA 1ÈRE LIGNE D'EN-TÊTE
@@ -142,19 +150,6 @@ class='tabQuadrille'>";
       $lgEquipe=$rsEquipe->fetch(PDO::FETCH_ASSOC);  
    } // Fin de la boucle sur les groupes à héberger
 echo "
+</div>
 </table>"; // Fin du tableau principal
-
-// AFFICHAGE DE LA LÉGENDE
-echo "
-<table align='center' width='80%'>
-   <tr>
-      <td width='34%' align='left'><a href='consultationAttributions.php'>Retour</a>
-      </td>
-      <td class='reserveSiLien'>&nbsp;</td>
-      <td width='30%' align='left'>Réservation possible si lien</td>
-      <td class='reserve'>&nbsp;</td>
-      <td width='30%' align='left'>Chambres réservées</td>
-   </tr>
-</table>";
-
 ?>
