@@ -127,7 +127,7 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
                 </td>
                 <td> <br> Nombre chambres offertes :<input type="number" class="form-control"
                         name="nombreChambresOffertes" size="1"
-                        onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;"></td>
+                        onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;" required></td>
 
             </tr>
         </table>
