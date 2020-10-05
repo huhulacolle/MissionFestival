@@ -63,7 +63,7 @@ else
 <?php echo "<form method='POST' action='modificationEtablissement.php?action=demanderModifEtab&idEtablissement=". $id ."'>"; ?>
 <input type='hidden' value='validerModifEtab' name='action'>
 <center>
-    <h4> Nouvel Etablissement </h4>
+    <h4> Modification d'un Établissement </h4>
 </center>
 <div class="mx-auto" style="width: 800px;">
     <table class="table table-hover">
