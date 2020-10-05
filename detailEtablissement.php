@@ -1,3 +1,4 @@
+<title>Acceuil > Gestion établissements > Détail des établissements</title> 
 <?php
 
 include("_debut.inc.php");
