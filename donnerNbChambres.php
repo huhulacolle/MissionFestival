@@ -38,8 +38,8 @@ echo "
    }
    echo "
    </select></h5>
-   <input type='submit' value='Valider' name='valider'>&nbsp&nbsp&nbsp&nbsp
-   <input type='reset' value='Annuler' name='Annuler'><br><br>
+   <button type='submit'  class='btn btn-success mb-2' onclick='window.location.reload(false)' value='Rafraichir'/>Valider</button>&nbsp&nbsp&nbsp&nbsp
+   // <button type='submit'  class='btn btn-danger mb-2' onclick='window.location.reload(false)' value='Annuler'/>Annuler</button><br><br>
    <a href='modificationAttributions.php?action=demanderModifAttrib'>Retour</a>
    </center>
 </form>";
