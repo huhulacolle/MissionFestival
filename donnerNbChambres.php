@@ -1,3 +1,4 @@
+<title>Acceuil > Attribution chambres > Nombres de chambres</title>
 <?php
 
 include("_debut.inc.php");
