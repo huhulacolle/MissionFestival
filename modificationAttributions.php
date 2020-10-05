@@ -56,7 +56,7 @@ class='tabQuadrille'>";
    // AFFICHAGE DE LA 2ÈME LIGNE D'EN-TÊTE (ÉTABLISSEMENTS)
    echo "
    <tr class='ligneTabQuad'>
-      <td>&nbsp;</td>";
+      <td><i><strong>Nom équipes et pays équipes</strong></i></td>";
       
    $req=obtenirReqEtablissementsOffrantChambres();
    $rsEtab=$connexion->query($req);
