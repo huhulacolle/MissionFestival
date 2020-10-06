@@ -9,6 +9,13 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css\style.css">
     <link rel="shortcut icon" href="images\Zouple-ConvertImage.ico" type="image/x-icon">
+    <?php
+    // -------futur code pour favicon aléatoire----------------
+    // $favicon = array("images\Zouple-ConvertImage.ico", 2);
+    // $i = mt_rand ( 0 , 1 );
+    // echo $favicon[$i];
+    // --------------------------------------------------------
+    ?>
 </head>
 
 <center> <img src="images\logo-200x200.png"> </center>
