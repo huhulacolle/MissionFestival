@@ -61,6 +61,7 @@ else
 }
 
 ?>
+<center> <a href="index.php">Acceuil</a> > <a href="listeEtablissements.php">Gestion établissements</a> > <a href="modificationEtablissement.php?action=demanderModifEtab&idEtablissement=<?php echo $id ?>">Modification Etablissement</a> </center> <br>
 <?php echo "<form method='POST' action='modificationEtablissement.php?action=demanderModifEtab&idEtablissement=". $id ."'>"; ?>
 <input type='hidden' value='validerModifEtab' name='action'>
 <center>

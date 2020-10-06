@@ -33,6 +33,7 @@ $nomResponsable=$lgEtab['nomResponsable'];
 $prenomResponsable=$lgEtab['prenomResponsable'];
 $nombreChambresOffertes=$lgEtab['nombreChambresOffertes'];
 ?>
+<center> <a href="index.php">Acceuil</a> > <a href="listeEtablissements.php">Gestion établissements</a> > <a href="detailEtablissement.php?idEtablissement=<?php echo $idEtablissement ?>">Détail des établissements</a> </center> <br>
 <center>
     <h2> <?php echo $nom; ?> </h2>
 </center>

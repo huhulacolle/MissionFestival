@@ -14,9 +14,13 @@ $ut8=utf8($connexion);
 // IL FAUT QU'IL Y AIT AU MOINS UN ÉTABLISSEMENT OFFRANT DES CHAMBRES POUR  
 // AFFICHER LE LIEN VERS LA MODIFICATION
 $nbEtab=obtenirNbEtabOffrantChambres($connexion);
+?>
+<center> <a href="index.php">Acceuil</a> > <a href="consultationAttributions.php">Attribution chambres</a> </center> <br>
+<?php
 if ($nbEtab!=0)
 {
    echo "
+
    <table width='30%' cellspacing='0' cellpadding='0' align='right'
    <tr><td>
    <a href='modificationAttributions.php?action=demanderModifAttrib'>

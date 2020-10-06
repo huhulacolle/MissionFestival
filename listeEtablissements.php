@@ -22,6 +22,7 @@ if (!$connexion)
 
 
 ?>
+<center> <a href="index.php">Acceuil</a> > <a href="listeEtablissements.php">Gestion établissements</a> </center> <br>
 <div class="mx-auto" style="width: 900px;">
     <table class="table table-bordered">
         <thead>

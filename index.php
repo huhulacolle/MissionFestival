@@ -8,6 +8,7 @@
     <?php 
    include "_debut.inc.php";
    ?>
+   <center> <a href="index.php">Acceuil</a></center>
 </head>
 
 <body>

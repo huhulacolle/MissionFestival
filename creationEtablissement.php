@@ -55,7 +55,7 @@ if ($action == 'demanderCreEtab') {
     }
 }
 ?>
-
+<center> <a href="index.php">Acceuil</a> > <a href="listeEtablissements.php">Gestion établissements</a> > <a href="creationEtablissement.php?action=demanderCreEtab">Création établissements</a> </center> <br>
 <form method='POST' action='creationEtablissement.php?'>
     <input type='hidden' value='validerCreEtab' name='action'>
     <center>
