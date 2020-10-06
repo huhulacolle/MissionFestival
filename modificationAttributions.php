@@ -44,7 +44,7 @@ echo "
     </tr>
 </table>
 <br>
-<div class='mx-auto' style='width: 2000px;'>
+<div class='mx-auto' style='width: 1200px;'>
 <table class='table table-bordered' width='80%' cellspacing='0' cellpadding='0' align='center' 
 class='tabQuadrille'>";
 
