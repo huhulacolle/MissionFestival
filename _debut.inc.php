@@ -56,17 +56,6 @@ $adresse = explode("/", $adresse);
 
     </li>
 </ul>
-<?php
-
-//------------ code php non fini ------------
-// $oldAdresse = $_SERVER['HTTP_REFERER'];
-// $oldAdresse = explode("/", $oldAdresse);
-// var_dump($adresse[2]);
-// echo "<br>";
-// var_dump($oldAdresse[4]);
-// ------------------------------------------
-?>
-
 </table>
 <br>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
