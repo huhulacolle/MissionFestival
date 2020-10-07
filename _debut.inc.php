@@ -11,7 +11,6 @@
     <?php
     $favicon = array("images\Zouple-ConvertImage.ico","images/ZoupleBadmintonKarate-ConvertImage.ico","images/ZoupleChev-ConvertImage.ico","images/ZoupleSurf-ConvertImage.ico");
     $i = mt_rand ( 0 , 3 );
-    var_dump($favicon[$i]);
     ?>
     <link rel="shortcut icon" href="<?php echo $favicon[$i] ?>" type="image/x-icon">
 </head>
