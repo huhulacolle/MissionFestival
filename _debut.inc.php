@@ -9,8 +9,8 @@
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css\style.css">
     <?php
-    $favicon = array("images\Zouple-ConvertImage.ico","images/ZoupleBadmintonKarate-ConvertImage.ico","images/ZoupleChev-ConvertImage.ico","images/ZoupleSurf-ConvertImage.ico");
-    $i = mt_rand ( 0 , 3 );
+    $favicon = array("images\Zouple-ConvertImage.ico","images/ZoupleBadmintonKarate-ConvertImage.ico","images/ZoupleChev-ConvertImage.ico","images/ZoupleSurf-ConvertImage.ico","images\zouplenazi-ConvertImage.ico","images\zoupleParfait-ConvertImage.ico");
+    $i = mt_rand ( 0 , 5 );
     ?>
     <link rel="shortcut icon" href="<?php echo $favicon[$i] ?>" type="image/x-icon">
 </head>
