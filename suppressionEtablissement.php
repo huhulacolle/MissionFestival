@@ -1,4 +1,4 @@
-<title>Acceuil > Gestion établissements > Suppression établissements</title> 
+<title>Acceuil > Gestion établissements > Suppression établissements</title>
 <?php
 
 include("_debut.inc.php");
@@ -15,6 +15,8 @@ $id=$_REQUEST['idEtablissement'];
 
 $lgEtab=obtenirDetailEtablissement($connexion, $id);
 $nom=$lgEtab['nom'];
+
+echo '<center> <a href="index.php">Acceuil</a> > <a href="listeEtablissements.php">Gestion établissements</a> > <a href="suppressionEtablissement.php?action=demanderSupprEtab&idEtablissement='.$id.'">Suppression établissements</a> </center> <br>';
 
 // Cas 1ère étape (on vient de listeEtablissements.php)
 

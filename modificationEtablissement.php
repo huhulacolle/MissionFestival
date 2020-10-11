@@ -1,4 +1,4 @@
-<title>Acceuil > Gestion établissements > Modification établissements</title> 
+<title>Acceuil > Gestion établissements > Modification établissements</title>
 <?php
 
 include("_debut.inc.php");
@@ -61,6 +61,9 @@ else
 }
 
 ?>
+<center> <a href="index.php">Acceuil</a> > <a href="listeEtablissements.php">Gestion établissements</a> > <a
+        href="modificationEtablissement.php?action=demanderModifEtab&idEtablissement=<?php echo $id ?>">Modification
+        Etablissement</a> </center> <br>
 <?php echo "<form method='POST' action='modificationEtablissement.php?action=demanderModifEtab&idEtablissement=". $id ."'>"; ?>
 <input type='hidden' value='validerModifEtab' name='action'>
 <center>
@@ -97,8 +100,19 @@ else
         <tr>
             <br> <br>
             <td> <br> <strong> Type: </strong> </td>
+            <?php 
+            if ($type == 0) {
+                ?>
+            <td> <br> <input type='radio' name='type' value='1'> Etablissement Scolaire </td>
+            <td> <br> <input type='radio' name='type' value='0' checked> autre </td>
+            <?php
+            } else {
+                ?>
             <td> <br> <input type='radio' name='type' value='1' checked> Etablissement Scolaire </td>
             <td> <br> <input type='radio' name='type' value='0'> autre </td>
+            <?php
+            }
+            ?>
         </tr>
 
         </td>
@@ -116,21 +130,14 @@ else
         <tr>
             <td></td>
             <td> <br> Civilité :
-                <select class="form-control" name='civiliteResponsable'>
-                    <?php
-                    for ($i = 0; $i < 3; $i = $i + 1) {
-                    if ($tabCivilite[$i] == $civiliteResponsable) {
-                        echo "<option>".$tabCivilite[$i]."</option>";
-                    } else {
-                        echo "<option>".$tabCivilite[$i]."</option>";
-                        }
-                    }
-
-                    ?>
+                <div id="civiliteResponsable">
+                    <input type="text" class="form-control" name="civiliteResponsable"
+                    onclick="civilite()" value="<?php echo $civiliteResponsable ?>">
+                </div>
             </td>
             <td> <br> Nombre chambres offertes :<input type="number" class="form-control" name="nombreChambresOffertes"
                     <?php echo "value='" . $nombreChambresOffertes . "'" ?>
-                    onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;"required></td>
+                    onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;" required></td>
 
         </tr>
     </table>
@@ -144,6 +151,21 @@ else
             </tr>
     </table>
 </div>
+<script>
+function civilite() {
+    let elem = document.getElementById("civiliteResponsable");
+    elem.innerHTML = '<?php
+    echo '<select class="form-control" name="civiliteResponsable">';
+    for ($i = 0; $i < 3; $i = $i + 1) {
+        if ($tabCivilite[$i] == $civiliteResponsable) {
+            echo "<option>".$tabCivilite[$i]."</option>";
+        } else {
+            echo "<option>".$tabCivilite[$i]."</option>";
+            }
+        }
+                    ?> ';
+}
+</script>
 <?php
 
 // En cas de validation du formulaire : affichage des erreurs ou du message de

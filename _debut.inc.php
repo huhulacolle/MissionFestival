@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="css\style.css">
-    <link rel="shortcut icon" href="images\Zouple-ConvertImage.ico" type="image/x-icon">
+    <?php
+    $favicon = array("images\Zouple-ConvertImage.ico","images/ZoupleBadmintonKarate-ConvertImage.ico","images/ZoupleChev-ConvertImage.ico","images/ZoupleSurf-ConvertImage.ico","images\zouplenazi-ConvertImage.ico","images\zoupleParfait-ConvertImage.ico");
+    $i = mt_rand ( 0 , 5 );
+    ?>
+    <link rel="shortcut icon" href="<?php echo $favicon[$i] ?>" type="image/x-icon">
 </head>
 
 <center> <img src="images\logo-200x200.png"> </center>
@@ -52,17 +56,6 @@ $adresse = explode("/", $adresse);
 
     </li>
 </ul>
-<?php
-
-//------------ code php non fini ------------
-// $oldAdresse = $_SERVER['HTTP_REFERER'];
-// $oldAdresse = explode("/", $oldAdresse);
-// var_dump($adresse[2]);
-// echo "<br>";
-// var_dump($oldAdresse[4]);
-// ------------------------------------------
-?>
-
 </table>
 <br>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

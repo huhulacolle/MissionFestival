@@ -35,7 +35,9 @@ if ($action=='validerModifAttrib')
    $nbChambres=$_REQUEST['nbChambres'];
    modifierAttribChamb($connexion, $idEtab, $idEquipe, $nbChambres);
 }
-
+?>
+<center> <a href="index.php">Acceuil</a> > <a href="consultationAttributions.php">Attribution chambres</a> > <a href="modificationAttributions.php?action=demanderModifAttrib">Modification Attribution</a> </center> <br>
+<?php
 echo "
 <table align='center' width='85%'>
     <tr>
@@ -44,7 +46,7 @@ echo "
     </tr>
 </table>
 <br>
-<div class='mx-auto' style='width: 2000px;'>
+<div class='mx-auto' style='width: 1200px;'>
 <table class='table table-bordered' width='80%' cellspacing='0' cellpadding='0' align='center' 
 class='tabQuadrille'>";
 

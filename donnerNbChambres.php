@@ -1,4 +1,4 @@
-<title>Acceuil > Attribution chambres > Nombres de chambres</title>
+<title>Acceuil > Attribution chambres > Modification Attribution > Nombres de chambres</title>
 <?php
 
 include("_debut.inc.php");
@@ -14,7 +14,9 @@ $ut8=utf8($connexion);
 $idEtab=$_REQUEST['idEtab'];
 $idEquipe=$_REQUEST['idEquipe'];
 $nbChambres=$_REQUEST['nbChambres'];
-
+?>
+<center> <a href="index.php">Acceuil</a> > <a href="consultationAttributions.php">Attribution chambres</a> > <a href="modificationAttributions.php?action=demanderModifAttrib">Modification Attribution</a> > <a href="donnerNbChambres.php?idEtab=<?php echo $idEtab ?>&idEquipe=<?php echo $idEquipe ?>&nbChambres=<?php echo $nbChambres ?>">Nombres de chambre</a> </center> <br>
+<?php
 echo "
 <form method='POST' action='modificationAttributions.php'>
 	<input type='hidden' value='validerModifAttrib' name='action'>
