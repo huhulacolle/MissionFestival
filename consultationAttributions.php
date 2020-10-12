@@ -51,7 +51,16 @@ if ($nbEtab!=0)
       echo "
       <tr class='enTeteTabQuad'>
          <td colspan='2' align='center'><strong>$nomEtab</strong>&nbsp;
-         (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : $nbChLib)
+         (Offre : $nbOffre&nbsp;&nbsp;Disponibilités : ";
+         if($nbChLib == 0)
+            {
+               echo"Aucune réservations disponible)";
+            }
+         else
+         {
+             echo"$nbChLib)";
+         }
+      echo"
          </td>
       </tr>";
           
