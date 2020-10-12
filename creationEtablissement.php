@@ -106,10 +106,10 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
             <tr>
                 <td> <br> <br> <strong>Responsable :</strong></td>
                 </select>
-                <td> <br> Nom : <input type="text" class="form-control" name="nomResponsable" size="26" maxlength="25">
+                <td> <br> Nom : <input type="text" class="form-control" name="nomResponsable" size="26" maxlength="25" required>
                 </td>
                 <td> <br> Prénom : <input type="text" class="form-control" name="prenomResponsable" size="26"
-                        maxlength="25"> </td>
+                        maxlength="25" required> </td>
             </tr>
             <tr>
                 <td></td>
@@ -128,7 +128,7 @@ $id[7] = $chars[rand(0, strlen($chars) - 1)];
                 </td>
                 <td> <br> Nombre chambres offertes :<input type="number" class="form-control"
                         name="nombreChambresOffertes" size="1"
-                        onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;" min="0" required></td>
+                        onKeyDown="if(this.value.length==3 && event.keyCode!=8) return false;" min="0"></td>
 
             </tr>
         </table>
