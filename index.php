@@ -16,7 +16,7 @@
     <br>
 
     <div class="mx-auto" style="width: 800px;">
-        Cette application web permet de gérer l'hébergement des etablissemenrs
+        Cette application web permet de gérer l'hébergement des etablissements
         durant le festival M2L.
         <br>
         Elle offre les services suivants :
