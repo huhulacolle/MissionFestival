@@ -156,7 +156,14 @@ class='tabQuadrille'>";
       $nbOccupTotal=$connexion->query($nbOccupTotal);
       $nbOccupTotal=$nbOccupTotal->fetch(PDO::FETCH_ASSOC);
       $nbOccupParEquipe=$nbOccupTotal['reservations'];
-      echo"<td> $nbOccupParEquipe</td>"; 
+      if($nbOccupParEquipe == 0)
+      {
+         echo"<td> Aucune réservations effectuées</td>"; 
+      }
+      else
+      {
+         echo"<td> $nbOccupParEquipe</td>"; 
+      }
    } // Fin de la boucle sur les groupes à héberger
 echo "
 </div>
