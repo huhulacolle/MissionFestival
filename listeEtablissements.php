@@ -58,9 +58,19 @@ $ut8=utf8($connexion);
             $occ=$connexion->query($occ);
             $occ=$occ->fetch(PDO::FETCH_ASSOC);
             $nboccupLibres = $lgEtab['nombreChambresOffertes'] - $occ['reservations'] ;
-            echo "
-            <td width='20%' align='center'> 
-            Chambres libres : $nboccupLibres</td>";          
+            if($nboccupLibres == 0)
+            {
+                 echo "
+                <td width='20%' align='center'> 
+                Complet</td>"; 
+            }
+            else
+            {
+              echo "
+                <td width='20%' align='center'> 
+                Chambres libres : $nboccupLibres</td>";            
+            }
+            
 			}
       $lgEtab=$rsEtab->fetch(PDO::FETCH_ASSOC);
    }   
