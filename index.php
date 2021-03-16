@@ -34,5 +34,7 @@
     </div>
 
 </body>
-
+<blockquote class="blockquote text-center">
+  <footer class="blockquote-footer">Copyright © 2021 ZoupleWorld HugoAraujo</footer>
+</blockquote>
 </html>
